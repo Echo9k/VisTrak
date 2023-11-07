@@ -1,0 +1,7 @@
+pytest-sftpserver
+paramiko
+psycopg2
+sqlalchemy
+pandas
+beautifulsoup4
+
