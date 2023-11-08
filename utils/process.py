@@ -12,7 +12,7 @@ def file(filename, cnx):
             line(line, cnx)  # Now we process the line assuming the header is already skipped
 
 
-def line(line, cnxe):
+def line(line, cnx):
     row = line.strip().split(',')
     err_value = None  # Initialize to track the value causing an error
     try:

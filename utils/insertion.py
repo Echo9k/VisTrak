@@ -35,7 +35,7 @@ def insert_statistics(statistics, cursor):
     """
     cursor.execute(statistics_insert, (
         statistics['email'],
-        statistics['dynamic_col'],
+        statistics['dynamic'],
         statistics['Badmail'],
         statistics['Baja'],
         statistics['Fecha envio'],
