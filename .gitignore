@@ -1,6 +1,3 @@
-data/processed/archive/report_7.txt.zip
-data/processed/archive/report_8.txt.zip
-data/processed/archive/report_9.txt.zip
-data/raw/report_7.txt
-data/raw/report_8.txt
-data/raw/report_9.txt
+data/processed/archive/
+data/raw/
+utils/__pycache__/

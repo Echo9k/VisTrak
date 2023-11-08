@@ -1,16 +1,34 @@
 from datetime import datetime
 
 
-# Define transformation functions (complete these based on your business logic)
 def visitor(row):
-    # Extract visitor information from the row
     email = row[0]
-    first_visit_date = datetime.datetime.strptime(row[1], '%Y-%m-%d')
-    last_visit_date = datetime.datetime.strptime(row[1], '%Y-%m-%d')
-    # You might want to adjust the logic below based on how you calculate total visits
-    total_visits = 1  # Placeholder, you would need to calculate this based on previous data
-    current_year_visits = 1 if first_visit_date.year == datetime.datetime.now().year else 0
-    current_month_visits = 1 if first_visit_date.month == datetime.datetime.now().month else 0
+    if not email or email == 'email':  # Skip if it's an empty email or the header
+        return None
+
+    # Initialize the variables
+    first_visit_date = None
+    last_visit_date = None
+
+    # Parse dates if they are not placeholders
+    if row[4] and row[4] != '-':
+        try:
+            first_visit_date = datetime.strptime(row[4], '%d/%m/%Y %H:%M')
+        except ValueError:
+            # Handle unexpected format
+            print(f"Unexpected date format for first visit date: {row[4]}")
+
+    if row[5] and row[5] != '-':
+        try:
+            last_visit_date = datetime.strptime(row[5], '%d/%m/%Y %H:%M')
+        except ValueError:
+            # Handle unexpected format
+            print(f"Unexpected date format for last visit date: {row[5]}")
+
+    # Placeholder values for visit counts
+    total_visits = 1  # This should be calculated based on data
+    current_year_visits = 1 if first_visit_date and first_visit_date.year == datetime.now().year else 0
+    current_month_visits = 1 if first_visit_date and first_visit_date.month == datetime.now().month else 0
 
     return {
         'email': email,
@@ -22,21 +40,31 @@ def visitor(row):
     }
 
 
+def date(date_str):
+    if date_str and date_str != '-':
+        try:
+            return datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
+        except ValueError:
+            # Handle incorrect date format
+            pass
+    return None
+
+
 def statistics(row):
     # Extract statistics information from the row
     email = row[0]
-    jyv = row[2]
+    dynamic = row[2]  # Replace with the actual name of the field
     # ... extract other fields similarly
-    fecha_envio = datetime.datetime.strptime(row[5], '%Y-%m-%d %H:%M:%S')
-    fecha_open = datetime.datetime.strptime(row[6], '%Y-%m-%d %H:%M:%S')
+    fecha_envio = date(row[5])
+    fecha_open = date(row[6])
     # ... extract other date fields similarly
-    opens = int(row[7])  # Assuming these fields are integer counts
-    opens_virales = int(row[8])
+    opens = int(row[7]) if row[7].isdigit() else 0
+    opens_virales = int(row[8]) if row[8].isdigit() else 0
     # ... convert other fields to appropriate types similarly
 
     return {
         'email': email,
-        'jyv': jyv,
+        'dynamic': dynamic,
         # ... include other fields similarly
         'Fecha envio': fecha_envio,
         'Fecha open': fecha_open,

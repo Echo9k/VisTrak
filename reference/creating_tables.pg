@@ -6,8 +6,8 @@ postgres=# CREATE TABLE visitor (
     visitasAnioActual INT,
     visitasMesActual INT
 );
-ERROR:  relation "visitor" already exists
-postgres=# CREATE TABLE statistics (
+
+CREATE TABLE statistics (
     email VCREATE TABLE statistics (
     email VARCHAR(255),
     jyv BOOLEAN,EAN,
@@ -26,12 +26,14 @@ postgres=# CREATE TABLE statistics (
     Plataformas TEXT,l) REFERENCES visitor(email)
     FOREIGN KEY (email) REFERENCES visitor(email)
 );
-CREATE TABLE
-postgres=# CREATE TABLE errors (
+
+CREATE TABLE errors (
     id SERIAL PRIMARY KEY,
     filename TEXT,
     row_data TEXT,
     error_message TEXT,
-    error_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    error_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    error_type TEXT,
+    error_code VARCHAR(255),
+    stack_trace TEXT
 );
-CREATE TABLE
