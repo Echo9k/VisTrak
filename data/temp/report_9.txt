@@ -1,0 +1,62 @@
+email,fgh,Badmail,Baja,Fecha envio,Fecha open,Opens,Opens virales,Fecha click,Clicks,Clicks virales,Links,IPs,Navegadores,Plataformas
+angelica-daniel@live.com.mx,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+sexi_barbi991@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+abrilgocar@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+pm_andres10@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+dolphin2006_1@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+chasada_10@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+clonroterdam@yahoo.com.mx,,HARD,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+rivera_aa@yahoo.com,,HARD,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+adri_gonz671@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+chaparritagallinita3@yahoo.com,,,,14/02/2013 17:35,-,0,0,-,0,0,-,-,-,-
+azucenamiamor@yahoo.com,,,,14/02/2013 17:35,14/02/2013 17:24,1,0,-,0,0,-,65.55.183.186,IE 9.0,Win7
+ana23almazan@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:34,1,0,-,0,0,-,189.151.239.14,IE 8.0,WinVista
+ana_paola2684@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:40,1,0,-,0,0,-,201.141.242.101,Android Browser 4.0,Android
+geliscz21@yahoo.com,,,SI,14/02/2013 17:35,15/02/2013 00:05,1,0,-,0,0,-,208.54.39.181,IEMobile,WinPhone7
+cadena_tony@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:41,1,0,-,0,0,-,189.236.8.135,,unknown
+tony_poncep@yahoo.com,,,,14/02/2013 17:35,15/02/2013 18:00,1,0,-,0,0,-,64.4.2.125,,unknown
+arlette_bernes@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:37,1,0,-,0,0,-,187.150.64.166,,unknown
+bartemisa@hotmail.com,,,,14/02/2013 17:35,14/02/2013 10:35,1,0,-,0,0,-,201.156.231.237,Chrome Generic,WinXP
+auri82j@yahoo.com,,,,14/02/2013 17:35,15/02/2013 20:54,1,0,-,0,0,-,187.206.213.77,Mobile Safari 5.1,iOS
+super_fufis@yahoo.com,,,SI,14/02/2013 17:35,14/02/2013 20:43,2,1,-,0,0,-,"189.155.78.53,200.95.170.6",,unknown
+xanat_2@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:30,2,0,-,0,0,-,187.159.10.45,,unknown
+reinisima@yahoo.com,,,,14/02/2013 17:35,15/02/2013 01:23,1,0,-,0,0,-,187.244.240.134,Mobile Safari 5.1,iOS
+mozapink-chocolate@yahoo.com,,,,14/02/2013 17:35,16/02/2013 19:40,1,0,-,0,0,-,65.54.55.152,Chrome Generic,Win7
+beavisandre@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:11,1,0,-,0,0,-,189.254.198.109,IE 7.0,WinXP
+brendatrujillomx@yahoo.com.mx,,,,14/02/2013 17:35,14/02/2013 15:32,1,0,-,0,0,-,201.174.49.163,IE 9.0,Win7
+britt_89_496@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:03,1,0,-,0,0,-,189.203.217.51,,unknown
+bren_urrutia@yahoo.com,,,SI,14/02/2013 17:35,14/02/2013 12:09,1,0,-,0,0,-,136.166.251.100,IE 7.0,Win7
+nena.cs@hotmail.com,,,,14/02/2013 17:35,14/02/2013 10:43,1,0,-,0,0,-,207.248.40.211,Chrome Generic,WinXP
+carlamex@yahoo.com,,,,14/02/2013 17:35,15/02/2013 09:35,1,0,-,0,0,-,65.55.72.238,Chrome Generic,Win7
+carmenjulieta2@yahoo.com,,,,14/02/2013 17:35,14/02/2013 14:41,1,0,-,0,0,-,187.133.190.251,IE 7.0,Win7
+cielo_oyuki@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:38,1,0,-,0,0,-,157.55.152.120,Chrome Generic,Win7
+cynmar_2906@yahoo.com,,,,14/02/2013 17:35,14/02/2013 12:34,1,0,-,0,0,-,187.191.7.44,Nokia,unknown
+freskivzel@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:42,1,0,-,0,0,-,189.195.136.234,Chrome Generic,Win7
+rubiotamayo@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:30,4,0,-,0,0,-,61.114.254.34,"Windows Live Mail,IE 7.0",WinXP
+bellota_03_17@yahoo.com,,,,14/02/2013 17:35,14/02/2013 19:54,1,0,-,0,0,-,189.198.95.54,IE 9.0,Win7
+cris_mag@yahoo.com,,,,14/02/2013 17:35,14/02/2013 19:27,1,0,-,0,0,-,174.141.156.148,IE 9.0,Win7
+deysiph@yahoo.com,,,,14/02/2013 17:35,14/02/2013 12:19,1,0,-,0,0,-,189.203.203.67,IE 8.0,Win7
+babyprincess_58@yahoo.com,,,,14/02/2013 17:35,19/02/2013 14:59,1,0,-,0,0,-,157.55.131.216,Chrome Generic,WinXP
+daphne.chapoy@yahoo.com,,,,14/02/2013 17:35,15/02/2013 15:38,1,0,-,0,0,-,65.54.55.152,IE 9.0,Win7
+deliapayan@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:01,1,0,-,0,0,-,200.95.170.9,Android Browser 4.0,Android
+intouchmx@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:58,3,0,-,0,0,-,187.163.11.8,Chrome 16.0,WinXP
+gold_40@yahoo.com,,,,14/02/2013 17:35,14/02/2013 13:42,1,0,-,0,0,-,65.55.75.222,Chrome Generic,WinXP
+dulceagarcia@yahoo.com,,,,14/02/2013 17:35,14/02/2013 14:59,1,0,-,0,0,-,187.199.241.242,IE 9.0,WinVista
+cori_matiu@yahoo.com,,,,14/02/2013 17:35,14/02/2013 17:35,1,0,-,0,0,-,187.150.66.58,Chrome Generic,Win7
+edgar_mera@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:49,1,0,-,0,0,-,157.55.131.216,,unknown
+cpednarosario@yahoo.com,,,,14/02/2013 17:35,18/02/2013 10:42,1,0,-,0,0,-,201.141.107.14,Chrome Generic,Win7
+distroller_88@yahoo.com,,,,14/02/2013 17:35,14/02/2013 15:19,1,0,-,0,0,-,65.54.55.152,Chrome Generic,Win7
+elenachavez_88@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:55,1,0,-,0,0,-,201.141.40.61,,unknown
+eli_mona@yahoo.com,,,,14/02/2013 17:35,14/02/2013 14:13,1,0,-,0,0,-,200.77.124.161,,unknown
+mujercaliente84@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:49,2,0,-,0,0,-,189.133.55.226,Android Browser 4.0,Android
+erendira-be@yahoo.com,,,,14/02/2013 17:35,14/02/2013 13:39,1,0,-,0,0,-,189.148.115.30,IE 9.0,Win7
+estefa.velez@hotmail.com,,,,14/02/2013 17:35,14/02/2013 10:50,1,0,-,0,0,-,187.237.14.206,,unknown
+esthellahell@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:08,1,0,-,0,0,-,132.247.242.252,,unknown
+ethel_stamer@yahoo.com,,,,14/02/2013 17:35,14/02/2013 19:01,1,0,-,0,0,-,187.210.189.209,,unknown
+b0nny_13@yahoo.com,,,,14/02/2013 17:35,14/02/2013 13:54,1,0,-,0,0,-,148.210.220.8,,unknown
+evecorrea@yahoo.com,,,,14/02/2013 17:35,14/02/2013 19:03,1,0,-,0,0,-,98.243.110.50,,unknown
+eve_lyn_@yahoo.com,,,,14/02/2013 17:35,14/02/2013 22:50,1,0,-,0,0,-,187.172.98.192,,unknown
+fabiolamp@yahoo.com,,,,14/02/2013 17:35,14/02/2013 10:37,1,0,-,0,0,-,201.149.23.164,,unknown
+veneranda222@yahoo.com,,,,14/02/2013 17:35,14/02/2013 18:13,1,0,-,0,0,-,187.191.7.10,,unknown
+gabyhg_83@yahoo.com,,,,14/02/2013 17:35,16/02/2013 10:30,1,0,-,0,0,-,187.141.102.198,IE 8.0,Win7
+gena_rbk@yahoo.com,,,,14/02/2013 17:35,14/02/2013 11:05,1,0,-,0,0,-,148.234.15.14,,unknown
