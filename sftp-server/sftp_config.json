@@ -1,6 +1,0 @@
-{
-    "host": "8.8.8.8",
-    "port": 10022,
-    "username": "postgres",
-    "password": "postgres"
-}

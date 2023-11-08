@@ -1,12 +1,36 @@
+# sftp-mock.py
 import http.server
 import socketserver
 import os
+import json
 
-PORT = 8000  # Choose an available port number
-DATA_DIR = "/workspaces/anaconda-postgres/data"  # Path to the directory containing log reports
+# Load the server configuration from config.json
+with open('/workspaces/anaconda-postgres/sftp-server/config.json') as f:
+    config = json.load(f)
+
+PORT = config['port']
+HOST = config['host']
+DATA_DIR = os.path.join('/workspaces/anaconda-postgres/sftp-server', config['data_dir'])
 
 # Create a custom request handler to serve log reports and directory listings
 class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        """Translate a /-separated PATH to the local filename syntax.
+
+        Components that mean special things to the local file system
+        (e.g. drive or directory names) are ignored. (They should be
+        ignored, as they might be unsafe.)
+
+        For example, if `DATA_DIR` is '/sftp-server/data/', and path is
+        '/data/report_7.txt', the returned path would be
+        '/sftp-server/data/report_7.txt'.
+        """
+        path = path.split('?',1)[0]
+        path = path.split('#',1)[0]
+        tail_part = path.replace('/data/', '', 1)
+        return os.path.join(DATA_DIR, tail_part)
+    directory = DATA_DIR
+
     def end_headers(self):
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         super().end_headers()
@@ -25,8 +49,86 @@ class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
         else:
             # Redirect requests to / to show the content of /data/
             self.send_response(302)
-            self.send_header('Location', '/data/')
+            self.send_header('Location', './data')
             self.end_headers()
+        
+# sftp-mock.py
+import http.server
+import socketserver
+import os
+import json
+
+# Load the server configuration from config.json
+with open('/workspaces/anaconda-postgres/sftp-server/config.json') as f:
+    config = json.load(f)
+
+PORT = config['port']
+HOST = config['host']
+DATA_DIR = os.path.join('/workspaces/anaconda-postgres/sftp-server', config['data_dir'])
+
+# Create a custom request handler to serve log reports and directory listings
+class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        """Translate a /-separated PATH to the local filename syntax.
+
+        Components that mean special things to the local file system
+        (e.g. drive or directory names) are ignored. (They should be
+        ignored, as they might be unsafe.)
+
+        For example, if `DATA_DIR` is '/sftp-server/data/', and path is
+        '/data/report_7.txt', the returned path would be
+        '/sftp-server/data/report_7.txt'.
+        """
+        path = path.split('?',1)[0]
+        path = path.split('#',1)[0]
+        tail_part = path.replace('/data/', '', 1)
+        return os.path.join(DATA_DIR, tail_part)
+    directory = DATA_DIR
+
+    def end_headers(self):
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        super().end_headers()
+
+    def do_GET(self):
+        if self.path.startswith("/data/"):
+            if self.path == "/data/":
+                # Serve a modified directory listing with recognizable tags
+                listing = self.generate_directory_listing()
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(listing.encode('utf-8'))
+            else:
+                # Serve files from the DATA_DIR directory
+                super().do_GET()
+        else:
+            # Redirect requests to / to show the content of /data/
+            self.send_response(302)
+            self.send_header('Location', './data')
+            self.end_headers()
+        
+    def do_DELETE(self):
+        # Use the translate_path method to get the correct file path
+        file_path = self.translate_path(self.path)
+
+        print(f"Attempting to delete: {file_path}")  # Log the file path
+
+        if os.path.isfile(file_path):  # Check if it's an actual file
+            try:
+                # os.remove(file_path)
+                self.send_response(204)
+                print(f"Successfully deleted: {file_path}")  # Log successful deletion
+            except PermissionError:
+                self.send_response(403, "Permission Denied")
+                print(f"Permission denied: {file_path}")  # Log permission issues
+            except Exception as e:
+                self.send_response(500, "Internal Server Error")
+                print(f"Error deleting file: {e}")  # Log other exceptions
+        else:
+            self.send_response(404, "File Not Found")
+            print(f"File not found: {file_path}")  # Log if file is not found
+
+        self.end_headers()
+
 
     def generate_directory_listing(self):
         # Generate a directory listing with recognizable tags
@@ -38,6 +140,6 @@ class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
         return listing
 
 # Start the mock server
-with socketserver.TCPServer(("", PORT), MockRequestHandler) as httpd:
-    print(f"Serving mock data at http://localhost:{PORT}")
+with socketserver.TCPServer((HOST, PORT), MockRequestHandler) as httpd:
+    print(f"Serving mock data at http://{HOST}:{PORT}")
     httpd.serve_forever()
