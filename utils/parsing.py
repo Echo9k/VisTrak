@@ -1,8 +1,8 @@
-
+from datetime import datetime
 
 
 # Define transformation functions (complete these based on your business logic)
-def parse_visitor(row):
+def visitor(row):
     # Extract visitor information from the row
     email = row[0]
     first_visit_date = datetime.datetime.strptime(row[1], '%Y-%m-%d')
@@ -22,7 +22,7 @@ def parse_visitor(row):
     }
 
 
-def parse_statistics(row):
+def statistics(row):
     # Extract statistics information from the row
     email = row[0]
     jyv = row[2]

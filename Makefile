@@ -20,7 +20,8 @@ sftp-setup:
     @echo "Setting up the mock SFTP server..."
 	mkdir -p /home/vinkOS/archivosVisitas/
     sudo chmod 777 /home/vinkOS/archivosVisitas/
-	cp sftp/config.json /home/vinkOS/archivosVisitas/config.json
+	cp config/pg-server.config /home/vinkOS/archivosVisitas/config.json
+	python3 src/sftp_server.py & echo $$! > sftp.pid
 
 
 sftp-teardown:

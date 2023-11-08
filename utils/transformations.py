@@ -4,6 +4,10 @@ import psycopg2
 import configparser
 import re
 
+from utils import (validation as validate,
+                   parsing as parse,
+                   logging)
+
 # Load config file
 config = configparser.ConfigParser()
 config.read('/workspaces/anaconda-postgres/config/config.conf')
@@ -25,10 +29,10 @@ for filename in os.listdir(temp_dir):
         with open(os.path.join(temp_dir, filename), 'r') as f:
             for line in f:
                 row = line.strip().split(',')
-                if validate_layout(row):
-                    if validate_email(row[0]) and validate_date(row[5]) and validate_date(row[6]) and validate_date(row[9]):
-                        visitor = parse_visitor(row)
-                        statistics = parse_statistics(row)
+                if validate.layout(row):
+                    if validate.email(row[0]) and validate.date(row[5]) and validate.date(row[6]) and validate.date(row[9]):
+                        visitor = parse.visitor(row)
+                        statistics = parse.statistics(row)
                         try:
                             with cnx.cursor() as cursor:
                                 visitor_insert = """
@@ -67,10 +71,10 @@ for filename in os.listdir(temp_dir):
                                 ))
                                 cnx.commit()
                         except psycopg2.DatabaseError as e:
-                            log_error(row, str(e))
+                            logging.log_error(row, str(e))
                             cnx.rollback()
                     else:
-                        log_error(row, 'Invalid email or date')
+                        logging.log_error(row, 'Invalid email or date')
         # Delete file once processed
         os.remove(os.path.join(temp_dir, filename))
 

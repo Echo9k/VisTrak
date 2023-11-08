@@ -1,8 +1,8 @@
 {
-    "host": "localhost",
-    "path": "data",
-    "port": 10022,
-    "username": "postgres",
-    "password": "postgres",
-    "data_dir" : "/workspaces/anaconda-postgres/sftp-server/data"
+    "user":"postgres",
+    "password":"postgres",
+    "path":"data",
+    "host":"localhost",
+    "port":5432,
+    "database":"postgres"
 }
