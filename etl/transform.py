@@ -2,6 +2,9 @@ import os
 import datetime
 import psycopg2
 import configparser
+from utils.validation import validate_layout, validate_email, validate_date
+from utils.parsing import parse_visitor, parse_statistics
+from utils.logging import log_error
 
 # Load config file
 config = configparser.ConfigParser()
@@ -48,3 +51,4 @@ for filename in os.listdir('/workspaces/anaconda-postgres/data/temp'):
 # Close Postgres connection
 cursor.close()
 cnx.close()
+
