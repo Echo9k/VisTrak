@@ -1,4 +1,4 @@
-from utils import loggs, parse
+from utils import loggr, parse
 
 
 def insert_data(row, cnx):

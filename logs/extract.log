@@ -18,3 +18,33 @@
 2023-11-10 18:52:30,230 - INFO - Downloaded: report_9.txt
 2023-11-10 18:52:30,231 - INFO - Backed up: report_9.txt in ZIP format at ./data/processed/archive/report_9.txt.zip
 2023-11-10 18:52:30,233 - INFO - Deleted: report_9.txt from the server
+2023-11-10 19:02:04,147 - INFO - Source directory: ./sftp-server/data/
+2023-11-10 19:02:04,147 - INFO - Raw directory: ./data/raw/
+2023-11-10 19:02:04,147 - INFO - Downloading files from the mock server...
+2023-11-10 19:02:04,151 - INFO - Response status code: 200
+2023-11-10 19:02:04,152 - INFO - Found 3 files
+2023-11-10 19:02:04,152 - INFO - Found file: report_7.txt
+2023-11-10 19:02:04,152 - INFO - Downloading: report_7.txt
+2023-11-10 19:02:04,155 - INFO - Downloaded: report_7.txt
+2023-11-10 19:02:04,156 - INFO - Backed up: report_7.txt in ZIP format at ./data/processed/archive/report_7.txt.zip
+2023-11-10 19:02:04,158 - INFO - Deleted: report_7.txt from the server
+2023-11-10 19:02:04,158 - INFO - Found file: report_8.txt
+2023-11-10 19:02:04,158 - INFO - Downloading: report_8.txt
+2023-11-10 19:02:04,160 - INFO - Downloaded: report_8.txt
+2023-11-10 19:02:04,161 - INFO - Backed up: report_8.txt in ZIP format at ./data/processed/archive/report_8.txt.zip
+2023-11-10 19:02:04,164 - INFO - Deleted: report_8.txt from the server
+2023-11-10 19:02:04,164 - INFO - Found file: report_9.txt
+2023-11-10 19:02:04,164 - INFO - Downloading: report_9.txt
+2023-11-10 19:02:04,166 - INFO - Downloaded: report_9.txt
+2023-11-10 19:02:04,168 - INFO - Backed up: report_9.txt in ZIP format at ./data/processed/archive/report_9.txt.zip
+2023-11-10 19:02:04,170 - INFO - Deleted: report_9.txt from the server
+2023-11-10 19:02:24,079 - INFO - Source directory: ./sftp-server/data/
+2023-11-10 19:02:24,079 - INFO - Raw directory: ./data/raw/
+2023-11-10 19:02:24,079 - INFO - Downloading files from the mock server...
+2023-11-10 19:02:24,082 - INFO - Response status code: 200
+2023-11-10 19:02:24,083 - INFO - Found 0 files
+2023-11-10 19:03:16,721 - INFO - Source directory: ./sftp-server/data/
+2023-11-10 19:03:16,721 - INFO - Raw directory: ./data/raw/
+2023-11-10 19:03:16,721 - INFO - Downloading files from the mock server...
+2023-11-10 19:03:16,725 - INFO - Response status code: 200
+2023-11-10 19:03:16,725 - INFO - Found 0 files

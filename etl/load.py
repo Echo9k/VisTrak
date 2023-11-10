@@ -23,7 +23,7 @@ temp_dir = paths['temp']
 # Add root directory to sys.path
 # This is necessary in my environment
 sys.path.append(config['path']['root'])
-from utils import (insert as insert, loggs, parse as parse, process, validate as validate)
+from utils import (insert as insert, parse as parse, process, validate as validate)
 
 
 # Connect to Postgres database
