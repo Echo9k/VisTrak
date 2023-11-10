@@ -1,72 +1,89 @@
-# ETL Process Implementation Guide
+# ETL Process Execution
 
-This guide outlines the steps for implementing an ETL (Extract, Transform, Load) process using SFTP for data extraction, transforming data for database compatibility, and loading it into a PostgreSQL database.
+## Install the requirements
 
-## Extract
+Use the Makefile to install all necessary stuff by running
 
-- **SFTP Connection**: Establish a connection to the SFTP server (8.8.8.8) to access `/home/vinkOS/archivosVisitas`.
+```bash
+make postgres-setup
+make sftp-setup
+make etl-setup
+```
+
+## Start the mock server
+This server is passwordless at the moment, so it's only necessary to start it from the root directory using
+
+```bash
+python sftp-server/sftp-mock.py
+```
+> Logs: logs/sftp_mock.log
+
+
+## ETL process execution
+
+To run a test execution of this we can copy the data from `/sftp-mock/data-backup` to `/sftp-mock/data` using
+
+```bash
+make testing
+```
+
+To schedule the chron job use
+```
+2 0 * * * bash etl/etl.sh &
+```
+
+### Execution detaills
+
+#### etl.sh
+
+Will sequentially execute:
+
+1. `/etl/extract.py`
+2. `/etl/transform.py`
+3. `/etl/load.py`
+
+
+## Implementation
+### Extract
+
+- **SFTP Connection**: Establish a connection to the SFTP server (8.8.8.8) to access `/home/vinkOS/archivosVisitas` (For the simulation we actually use `/sftp-mock/data/`).
 - **File Download**: Target files with the `report_*.txt` pattern. Downloaded files are temporarily stored in `/tmp/visitas`.
 
-## Transform
+### Transform
 
 - **File Processing**: For each file:
   - Validate layout, email, and date fields.
   - Split data into `visitor` and `statistics` objects.
   - Enrich data with calculated metrics and Date object conversion.
 
-## Load
+### Load
 
 - **Database Interaction**:
   - Update `visitor` table using insert/update logic to handle unique email entries.
   - Populate `statistics` and `errors` tables.
-  - Clear `statistics` and `errors` tables before each ETL run.
 
-## Error Handling
+### Error Handling
 
 - **Logging and Alerts**:
-  - Capture and log validation/load errors in the `errors` table.
-  - Set up email notifications for post-ETL run issues.
-  - Implement retry logic for failed loads, e.g., during DB outages.
+  - [extract.py, transform.py] Capture their logs in `/logs/`
+  - [load.py] Capture and log validation/load errors in the `errors` table.
+  - To be implemented
+    - Set up email notifications for post-ETL run issues.
+    - Implement retry logic for failed loads, e.g., during DB outages.
+    - Include log rotation and alerting mechanisms for critical failures such as Slack.
 
-## Post-processing
+### Post-processing
 
 - **Cleanup**:
   - Remove processed files from `/tmp/visitas`.
   - Archive files in `/home/etl/visitas/bckp` using zipping and date-naming.
 
-## Development Plan
 
-### Phase 1: Setup
+### Testing and Validation [not implemented]:
 
-- **Dev Container**: Configure with Anaconda, PostgreSQL, `paramiko`, `psycopg2`/`sqlalchemy`.
-- **Mock SFTP Server**: Install and configure within the dev container. Populate with sample data.
+To ensure comprehensive testing, I would including unit tests for individual components and integration tests for the entire ETL pipeline.
+This can be integrated into a CI/CD pipeline.
 
-### Phase 2: ETL Scripting
-
-- **Extraction Script**: Implement file downloading and pattern matching.
-- **Transformation Logic**: Develop validation, parsing, and enrichment functionalities.
-- **Load Functions**: Code database interactions for data insertion and table management.
-
-### Phase 3: Error Handling & Logging
-
-- **Error Handling**: Incorporate try-except blocks; log exceptions to the `errors` table.
-- **Logging**: Set up a logging mechanism for ETL steps and outcomes.
-
-### Phase 4: Post-Processing
-
-- **File Management**: Code for file deletion and archiving after processing.
-
-### Phase 5: Testing
-
-- **Unit Testing**: Cover all components.
-- **Integration Testing**: Run full ETL in the dev environment; validate data processing and loading.
-
-### Phase 6: Automation
-
-- **Scheduling**: Implement `cron` jobs for automated ETL runs.
-- **Production Transition**: Document configuration changes for the shift to production.
-
-### Phase 7: Documentation & Knowledge Transfer
-
-- **Documentation**: Create comprehensive guides covering setup, process flows, and troubleshooting.
-- **Knowledge Transfer**: Organize sessions and prepare guides for team members.
+### Security Considerations:
+As this project involves data handling, we should ensure that all data transfer and storage is secure, especially when moving to a production environment.
+However this implementation for the mock server is not using a passowrd for simplicity.
