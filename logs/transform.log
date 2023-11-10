@@ -1,0 +1,20 @@
+2023-11-10 18:35:40,208 - INFO - Processed: ./data/raw/report_7.txt
+2023-11-10 18:35:40,208 - INFO - Output: ./data/processed/temp/report_7.txt
+2023-11-10 18:35:40,208 - INFO - Deleted: ./data/raw/report_7.txt
+2023-11-10 18:35:40,209 - INFO - Processed: ./data/raw/report_8.txt
+2023-11-10 18:35:40,209 - INFO - Output: ./data/processed/temp/report_8.txt
+2023-11-10 18:35:40,209 - INFO - Deleted: ./data/raw/report_8.txt
+2023-11-10 18:35:40,210 - INFO - Processed: ./data/raw/report_9.txt
+2023-11-10 18:35:40,210 - INFO - Output: ./data/processed/temp/report_9.txt
+2023-11-10 18:35:40,210 - INFO - Deleted: ./data/raw/report_9.txt
+2023-11-10 18:35:40,210 - INFO - Data transformation and validation completed.	3/3
+2023-11-10 18:52:30,326 - INFO - Processed: ./data/raw/report_7.txt
+2023-11-10 18:52:30,326 - INFO - Output: ./data/processed/temp/report_7.txt
+2023-11-10 18:52:30,326 - INFO - Deleted: ./data/raw/report_7.txt
+2023-11-10 18:52:30,327 - INFO - Processed: ./data/raw/report_8.txt
+2023-11-10 18:52:30,328 - INFO - Output: ./data/processed/temp/report_8.txt
+2023-11-10 18:52:30,328 - INFO - Deleted: ./data/raw/report_8.txt
+2023-11-10 18:52:30,328 - INFO - Processed: ./data/raw/report_9.txt
+2023-11-10 18:52:30,329 - INFO - Output: ./data/processed/temp/report_9.txt
+2023-11-10 18:52:30,329 - INFO - Deleted: ./data/raw/report_9.txt
+2023-11-10 18:52:30,329 - INFO - Data transformation and validation completed.	3/3

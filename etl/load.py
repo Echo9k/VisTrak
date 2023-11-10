@@ -7,7 +7,7 @@ import configparser
 
 # Load config file
 config = configparser.ConfigParser()
-config.read('../config/config.conf')
+config.read('./config/config.conf')
 
 # Load configuration file (json format) for source database 
 with open(config['path']['config.sv']) as json_file:
@@ -17,8 +17,8 @@ with open(config['path']['config.sv']) as json_file:
 DATA_DIR = config['path']['data']
 HOST = config['database']['host.sv']
 PORT = config['database']['port.sv']
-path = config['path']
-temp_dir = f"..{path['temp']}"
+paths = config['path']
+temp_dir = paths['temp']
 
 # Add root directory to sys.path
 # This is necessary in my environment
@@ -37,13 +37,13 @@ cnx = psycopg2.connect(
 
 
 # Usage
-temp_dir = f"..{path['temp']}"
+temp_dir = paths['temp']
 for filename in os.listdir(temp_dir):
     print(filename)
     if filename.endswith('.txt'):
         full_path = os.path.join(temp_dir, filename)
         process.process_file(full_path, cnx)
-        # os.remove(full_path)
+        os.remove(full_path)
 
 
 # Close Postgres connection

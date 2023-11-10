@@ -16,7 +16,7 @@ from utils import processing as process
 # Define the path to the raw data folder and temp output folder
 raw_data_folder = config['path']['raw']
 temp_output_folder = config['path']['temp']
-path_logs = config['path']['log']
+path_logs = config['path']['log'] + 'transform.log'
 
 # Configure logging
 logging.basicConfig(filename=path_logs, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

@@ -1,10 +1,10 @@
 {
+    "database":"postgres",
     "user":"postgres",
     "password":"postgres",
-    "path":"data",
     "host.db":"localhost",
     "host.sv":"localhost",
     "port.db":5432,
     "port.sv":10022,
-    "database":"postgres"
+    "path":"data"
 }

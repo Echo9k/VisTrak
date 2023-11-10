@@ -1,0 +1,20 @@
+2023-11-10 18:52:30,209 - INFO - Source directory: ./sftp-server/data/
+2023-11-10 18:52:30,209 - INFO - Raw directory: ./data/raw/
+2023-11-10 18:52:30,209 - INFO - Downloading files from the mock server...
+2023-11-10 18:52:30,213 - INFO - Response status code: 200
+2023-11-10 18:52:30,214 - INFO - Found 3 files
+2023-11-10 18:52:30,214 - INFO - Found file: report_7.txt
+2023-11-10 18:52:30,214 - INFO - Downloading: report_7.txt
+2023-11-10 18:52:30,219 - INFO - Downloaded: report_7.txt
+2023-11-10 18:52:30,219 - INFO - Backed up: report_7.txt in ZIP format at ./data/processed/archive/report_7.txt.zip
+2023-11-10 18:52:30,222 - INFO - Deleted: report_7.txt from the server
+2023-11-10 18:52:30,222 - INFO - Found file: report_8.txt
+2023-11-10 18:52:30,222 - INFO - Downloading: report_8.txt
+2023-11-10 18:52:30,224 - INFO - Downloaded: report_8.txt
+2023-11-10 18:52:30,225 - INFO - Backed up: report_8.txt in ZIP format at ./data/processed/archive/report_8.txt.zip
+2023-11-10 18:52:30,228 - INFO - Deleted: report_8.txt from the server
+2023-11-10 18:52:30,228 - INFO - Found file: report_9.txt
+2023-11-10 18:52:30,228 - INFO - Downloading: report_9.txt
+2023-11-10 18:52:30,230 - INFO - Downloaded: report_9.txt
+2023-11-10 18:52:30,231 - INFO - Backed up: report_9.txt in ZIP format at ./data/processed/archive/report_9.txt.zip
+2023-11-10 18:52:30,233 - INFO - Deleted: report_9.txt from the server
