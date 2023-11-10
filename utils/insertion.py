@@ -1,8 +1,7 @@
-from utils import (validation as validate,
-                   parsing as parse,
+from utils import (parsing as parse,
                    logging)
 
-        
+
 def insert_data(row, cnx):
     visitor = parse.visitor(row)
     statistics = parse.statistics(row)
@@ -12,42 +11,71 @@ def insert_data(row, cnx):
         cnx.commit()
 
 
-def insert_visitor(visitor, cursor):
-    visitor_insert = """
-    INSERT INTO visitor (email, fechaPrimeraVisita, fechaUltimaVisita, visitasTotales, visitasAnioActual, visitasMesActual)
-    VALUES (%s, %s, %s, %s, %s, %s)
-    """
-    cursor.execute(visitor_insert,(
-        visitor['email'],
-        visitor['fechaPrimeraVisita'],
-        visitor['fechaUltimaVisita'],
-        visitor['visitasTotales'],
-        visitor['visitasAnioActual'],
-        visitor['visitasMesActual']
-        )
-    )
+from psycopg2 import IntegrityError  # Import this at the top of your file
 
+def insert_visitor(visitor, cursor):
+    try:
+        insert_query = """
+        INSERT INTO visitor (email, fechaPrimeraVisita, fechaUltimaVisita, visitasTotales, visitasAnioActual, visitasMesActual)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        ON CONFLICT (email) DO UPDATE SET
+            fechaUltimaVisita = EXCLUDED.fechaUltimaVisita,
+            visitasTotales = visitor.visitasTotales + 1,
+            visitasAnioActual = EXCLUDED.visitasAnioActual,
+            visitasMesActual = EXCLUDED.visitasMesActual
+        """
+        cursor.execute(insert_query, (
+            visitor['email'],
+            visitor['fechaPrimeraVisita'],
+            visitor['fechaUltimaVisita'],
+            visitor['visitasTotales'],
+            visitor['visitasAnioActual'],
+            visitor['visitasMesActual']
+        ))
+    except IntegrityError as e:
+        logging.error("Integrity error occurred: " + str(e))
+        # Handle the unique violation error
+        cnx.rollback()
+
+
+
+from psycopg2 import IntegrityError  # Import this at the top of your file
 
 def insert_statistics(statistics, cursor):
-    statistics_insert = """
-    INSERT INTO statistics (email, jyv, Badmail, Baja, Fecha_envio, Fecha_open, Opens, Opens_virales, Fecha_click, Clicks, Clicks_virales, Links, IPs, Navegadores, Plataformas)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-    """
-    cursor.execute(statistics_insert, (
-        statistics['email'],
-        statistics['dynamic'],
-        statistics['Badmail'],
-        statistics['Baja'],
-        statistics['Fecha envio'],
-        statistics['Fecha open'],
-        statistics['Opens'],
-        statistics['Opens virales'],
-        statistics['Fecha click'],
-        statistics['Clicks'],
-        statistics['Clicks virales'],
-        statistics['Links'],
-        statistics['IPs'],
-        statistics['Navegadores'],
-        statistics['Plataformas']
-    )
-)
+    try:
+        insert_query = """
+        INSERT INTO statistics (email, dynamic, bad_mail, baja, fecha_envio, fecha_apertura, opens, clicks, links, ips, navegadores, plataformas)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (email) DO UPDATE SET
+            dynamic = EXCLUDED.dynamic,
+            bad_mail = EXCLUDED.bad_mail,
+            baja = EXCLUDED.baja,
+            fecha_envio = EXCLUDED.fecha_envio,
+            fecha_apertura = EXCLUDED.fecha_apertura,
+            opens = EXCLUDED.opens,
+            clicks = EXCLUDED.clicks,
+            links = EXCLUDED.links,
+            ips = EXCLUDED.ips,
+            navegadores = EXCLUDED.navegadores,
+            plataformas = EXCLUDED.plataformas
+        """
+        cursor.execute(insert_query, (
+            statistics['email'],
+            statistics['dynamic'],
+            statistics['bad_mail'],
+            statistics['baja'],
+            statistics['fecha_envio'],
+            statistics['fecha_apertura'],
+            statistics['opens'],
+            statistics['clicks'],
+            statistics['links'],
+            statistics['ips'],
+            statistics['navegadores'],
+            statistics['plataformas']
+        ))
+    except IntegrityError as e:
+        logging.error("Integrity error occurred: " + str(e))
+        # Handle the unique violation error
+        cnx.rollback()
+
+

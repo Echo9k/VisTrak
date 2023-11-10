@@ -36,6 +36,9 @@ sftp-update:
 	export command=@8.8.8.8:/home/vinkOS/archivosVisitas
 	sftp $username$command
 
+etl-setup:
+	@echo "Setting up the ETL..."
+	0 2 * * * python3 etl/etl.sh & echo $$! > etl.pid
 
 clean:
     @echo "Cleaning up..."

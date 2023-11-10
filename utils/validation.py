@@ -4,8 +4,8 @@ import re
 from datetime import datetime
 
 
-def layout(row):
-    expected_columns = 15  # Update the number based on your file structure
+def layout(row, expected_length):
+    expected_columns = expected_length  # Update the number based on your file structure
     return len(row) == expected_columns
 
 
@@ -24,12 +24,16 @@ def email(email):
 
 
 def date(date_str):
-    if date_str == '-':
-        return True  # '-' is a placeholder for no date
-    try:
-        # The date strings in the data 'DD/MM/YYYY HH:MM'
-        datetime.strptime(date_str, '%d/%m/%Y %H:%M')
-        return True
-    except ValueError:
-        # If there is an unexpected string that's not a placeholder, consider it invalid
-        return False
+    if date_str and date_str != '-':
+        try:
+            # The date format in the CSV file
+            datetime.strptime(date_str, '%d/%m/%Y %H:%M')
+            return True
+        except ValueError:
+            # If an exception is caught, it means the date string is invalid
+            print(f"Invalid date format: {date_str}")
+            return False
+    return True
+
+
+

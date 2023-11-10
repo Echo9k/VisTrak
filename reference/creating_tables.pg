@@ -1,4 +1,4 @@
-postgres=# CREATE TABLE visitor (
+CREATE TABLE visitor (
     email VARCHAR(255) PRIMARY KEY,
     fechaPrimeraVisita DATE,
     fechaUltimaVisita DATE,
@@ -8,23 +8,20 @@ postgres=# CREATE TABLE visitor (
 );
 
 CREATE TABLE statistics (
-    email VCREATE TABLE statistics (
-    email VARCHAR(255),
-    jyv BOOLEAN,EAN,
-    Badmail BOOLEAN,
-    Baja BOOLEAN,MESTAMP,
-    FechaEnvio TIMESTAMP,
-    FechaOpen TIMESTAMP,
-    Opens INT,es INT,
-    OpensVirales INT,AMP,
-    FechaClick TIMESTAMP,
-    Clicks INT,es INT,
-    ClicksVirales INT,
-    Links INT,
-    IPs TEXT,es TEXT,
-    Navegadores TEXT,
-    Plataformas TEXT,l) REFERENCES visitor(email)
-    FOREIGN KEY (email) REFERENCES visitor(email)
+  email VARCHAR(255) NOT NULL,
+  dynamic TEXT,
+  bad_mail BOOLEAN,
+  baja BOOLEAN,
+  fecha_envio TIMESTAMP,
+  fecha_apertura TIMESTAMP,
+  opens INT,
+  clicks INT,
+  links INT,
+  ips TEXT,
+  navegadores TEXT,
+  plataformas TEXT,
+  CONSTRAINT pk_statistics PRIMARY KEY (email),
+  CONSTRAINT fk_statistics_email FOREIGN KEY (email) REFERENCES visitor(email)
 );
 
 CREATE TABLE errors (

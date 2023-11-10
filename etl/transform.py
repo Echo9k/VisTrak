@@ -1,23 +1,29 @@
 import os
+import sys
 import datetime
 import psycopg2
 import configparser
-from utils.validation import validate_layout, validate_email, validate_date
-from utils.parsing import parse_visitor, parse_statistics
-from utils.logging import log_error
 
 # Load config file
 config = configparser.ConfigParser()
 config.read('/workspaces/anaconda-postgres/config/config.conf')
-source = config['source']
+paths = config['path']
+config_conf = config['database']
+sys.path.append(config['path']['root'])
+
+from utils import (validation as validate,
+                   parsing as parse,
+                   insertion as insert)
+from utils.logging import cnx_error
+
 
 # Connect to Postgres database
 cnx = psycopg2.connect(
-    database=source['database'],
-    user=source['user'],
-    password=source['password'],
-    host=source.get('host', 'localhost'),  # Use 'localhost' as default if not set
-    port=source.get('port', '5432')  # Use '5432' as default if not set
+    database=config_conf['database'],
+    user=config_conf['user'],
+    password=config_conf['password'],
+    host=config_conf.get('host.db', 'localhost'),  # Use 'localhost' as default if not set
+    port=config_conf.get('port.db', '5432')  # Use '5432' as default if not set
 )
 cursor = cnx.cursor()
 
@@ -28,10 +34,10 @@ for filename in os.listdir('/workspaces/anaconda-postgres/data/temp'):
         with open(os.path.join('/workspaces/anaconda-postgres/data/temp', filename), 'r') as f:
             for line in f:
                 row = line.strip().split(',')
-                if validate_layout(row):
-                    if validate_email(row[0]) and validate_date(row[1]):
-                        visitor = parse_visitor({'email': row[0], 'date': row[1]})
-                        statistics = parse_statistics({'email': row[0], 'jyv': row[2], 'Badmail': row[3], 'Baja': row[4], 'Fecha envio': row[5], 'Fecha open': row[6], 'Opens': row[7], 'Opens virales': row[8], 'Fecha click': row[9], 'Clicks': row[10], 'Clicks virales': row[11], 'Links': row[12], 'IPs': row[13], 'Navegadores': row[14], 'Plataformas': row[15]})
+                if validate.layout(row):
+                    if validate.email(row[0]) and validate.date(row[1]):
+                        visitor = parse.visitor({'email': row[0], 'date': row[1]})
+                        statistics = parse.statistics({'email': row[0], 'jyv': row[2], 'Badmail': row[3], 'Baja': row[4], 'Fecha envio': row[5], 'Fecha open': row[6], 'Opens': row[7], 'Opens virales': row[8], 'Fecha click': row[9], 'Clicks': row[10], 'Clicks virales': row[11], 'Links': row[12], 'IPs': row[13], 'Navegadores': row[14], 'Plataformas': row[15]})
                         try:
                             # Insert visitor and statistics into Postgres tables
                             visitor_insert = "INSERT INTO visitor (email, fechaPrimeraVisita, fechaUltimaVisita, visitasTotales, visitasAnioActual, visitasMesActual) VALUES (%s, %s, %s, %s, %s, %s)"
@@ -41,10 +47,10 @@ for filename in os.listdir('/workspaces/anaconda-postgres/data/temp'):
                             cnx.commit()
                         except Exception as e:
                             # Log error if insert fails
-                            log_error(row, str(e))
+                            cnx_error(row, str(e))
                     else:
                         # Log error if email or date is invalid
-                        log_error(row, 'Invalid email or date')
+                        cnx_error(row, 'Invalid email or date')
         # Delete file once processed
         os.remove(os.path.join('/workspaces/anaconda-postgres/data/temp', filename))
 

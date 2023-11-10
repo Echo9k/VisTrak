@@ -2,7 +2,9 @@
     "user":"postgres",
     "password":"postgres",
     "path":"data",
-    "host":"localhost",
-    "port":5432,
+    "host.db":"localhost",
+    "host.sv":"localhost",
+    "port.db":5432,
+    "port.sv":10022,
     "database":"postgres"
 }

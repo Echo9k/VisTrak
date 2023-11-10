@@ -9,13 +9,16 @@ import zipfile  # Import the zipfile module for creating ZIP archives
 config = configparser.ConfigParser()
 config.read("/workspaces/anaconda-postgres/config/config.conf")
 
+download_dir = f".{config['path']['download']}"  # Directory to save the downloaded files
+backup_dir = config['path']['backup']  # Get the backup directory path from the config
 
 # Read the config file for the mock server
-with open(config['source']['config_file']) as f:
+with open(config['path']['config.sv']) as f:
     config_server = json.load(f)
 
+
 # Define the URL of the mock server
-mock_server_url = f"http://{config_server['host']}:{config_server['port']}/{config_server['path']}/"
+mock_server_url = f"http://{config_server['host.sv']}:{config_server['port.sv']}/{config_server['path']}/"
 
 # Send an HTTP GET request to the mock server
 response = requests.get(mock_server_url)
@@ -26,13 +29,7 @@ if response.status_code == 200:
 
     # Find all <a> elements with the data-file attribute
     file_links = soup.find_all("a", {"data-file": True})
-    # Directory to save the downloaded files
-    download_dir = config['source']['download_dir']
-    backup_dir = config['source']['backup_dir']  # Get the backup directory path from the config
 
-    # Create the download and backup directories if they don't exist
-    os.makedirs(download_dir, exist_ok=True)
-    os.makedirs(backup_dir, exist_ok=True)
 
     # Loop through the file links
     for link in file_links:
@@ -40,6 +37,20 @@ if response.status_code == 200:
         if file_name.startswith("report_") and file_name.endswith(".txt"):
             file_url = mock_server_url + file_name
             file_path = os.path.join(download_dir, file_name)
+
+            # Check and create download directory if it doesn't exist
+            if not os.path.exists(download_dir):
+                try:
+                    os.makedirs(download_dir)
+                except Exception as e:
+                    print(f"Error creating directory {download_dir}: {e}")
+
+            # Check and create backup directory if it doesn't exist
+            if not os.path.exists(backup_dir):
+                try:
+                    os.makedirs(backup_dir)
+                except Exception as e:
+                    print(f"Error creating directory {backup_dir}: {e}")
 
             # Download the file
             file_response = requests.get(file_url)
@@ -65,3 +76,4 @@ if response.status_code == 200:
                 print(f"Failed to download: {file_name}")
 else:
     print(f"Failed to fetch the mock server page with status code: {response.status_code}")
+

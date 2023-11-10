@@ -3,68 +3,21 @@ import http.server
 import socketserver
 import os
 import json
+import configparser
+
+
+# Load config file
+config = configparser.ConfigParser()
+config.read('./config/config.conf')
 
 # Load the server configuration from config.json
-with open('/workspaces/anaconda-postgres/sftp-server/config.json') as f:
-    config = json.load(f)
+with open(config['path']["config.sv"]) as f:
+    config_srv = json.load(f)
 
-PORT = config['port']
-HOST = config['host']
-DATA_DIR = os.path.join('/workspaces/anaconda-postgres/sftp-server', config['data_dir'])
+PORT = config_srv['port.sv']
+HOST = config_srv['host.sv']
+DATA_DIR = config_srv['path']
 
-# Create a custom request handler to serve log reports and directory listings
-class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
-    def translate_path(self, path):
-        """Translate a /-separated PATH to the local filename syntax.
-
-        Components that mean special things to the local file system
-        (e.g. drive or directory names) are ignored. (They should be
-        ignored, as they might be unsafe.)
-
-        For example, if `DATA_DIR` is '/sftp-server/data/', and path is
-        '/data/report_7.txt', the returned path would be
-        '/sftp-server/data/report_7.txt'.
-        """
-        path = path.split('?',1)[0]
-        path = path.split('#',1)[0]
-        tail_part = path.replace('/data/', '', 1)
-        return os.path.join(DATA_DIR, tail_part)
-    directory = DATA_DIR
-
-    def end_headers(self):
-        self.send_header('Content-Type', 'text/html; charset=utf-8')
-        super().end_headers()
-
-    def do_GET(self):
-        if self.path.startswith("/data/"):
-            if self.path == "/data/":
-                # Serve a modified directory listing with recognizable tags
-                listing = self.generate_directory_listing()
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(listing.encode('utf-8'))
-            else:
-                # Serve files from the DATA_DIR directory
-                super().do_GET()
-        else:
-            # Redirect requests to / to show the content of /data/
-            self.send_response(302)
-            self.send_header('Location', './data')
-            self.end_headers()
-        
-# sftp-mock.py
-import http.server
-import socketserver
-import os
-import json
-
-# Load the server configuration from config.json
-with open('/workspaces/anaconda-postgres/sftp-server/config.json') as f:
-    config = json.load(f)
-
-PORT = config['port']
-HOST = config['host']
-DATA_DIR = os.path.join('/workspaces/anaconda-postgres/sftp-server', config['data_dir'])
 
 # Create a custom request handler to serve log reports and directory listings
 class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
