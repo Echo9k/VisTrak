@@ -1,12 +1,13 @@
 import traceback
 from datetime import datetime
-from utils import (logging, insertion,
-                   validation as validate)
+from utils import (insert,
+                   loggr as loggs,
+                   parse as parse)
 from psycopg2.errors import UniqueViolation
         
 
-from utils import (parsing as parse,
-                   logging, insertion)
+from utils import insert
+from utils import validate
 
 
 def process_file(filename, cnx):
@@ -44,11 +45,11 @@ def process_line(filename, cnx, line):
                 raise ValueError('Invalid date format')
 
         # If all validations pass
-        insertion.insert_data(row, cnx)
+        insert.insert_data(row, cnx)
     # except UniqueViolation:
     #     cnx.rollback()
     except Exception as e:
-        logging.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
+        loggs.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
 
 
 def process_timestamp(timestamp_str, format='iso', return_type='str'):
@@ -125,11 +126,11 @@ def process_line(filename, cnx, line):
                 raise ValueError('Invalid date format')
 
         # If all validations pass
-        insertion.insert_data(row, cnx)
+        insert.insert_data(row, cnx)
     # except UniqueViolation:
     #     cnx.rollback()
     except Exception as e:
-        logging.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
+        loggs.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
 
 
 def process_timestamp(timestamp_str, format='iso', return_type='str'):

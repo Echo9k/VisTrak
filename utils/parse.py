@@ -1,5 +1,5 @@
 from datetime import datetime
-from utils import validation, process
+from utils import process
 
 
 def visitor(row):

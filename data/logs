@@ -1,0 +1,54 @@
+ERROR:root:Data: ./data/raw/report_7.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_7.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_7.txt'
+
+ERROR:root:Data: ./data/raw/report_8.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_8.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_8.txt'
+
+ERROR:root:Data: ./data/raw/report_9.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_9.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_9.txt'
+
+ERROR:root:Data: ./data/raw/report_7.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_7.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_7.txt'
+
+ERROR:root:Data: ./data/raw/report_8.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_8.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_8.txt'
+
+ERROR:root:Data: ./data/raw/report_9.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_9.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 17, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_9.txt'
+
+ERROR:root:Data: ./data/raw/report_7.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_7.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 12, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w', newline='') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_7.txt'
+
+ERROR:root:Data: ./data/raw/report_8.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_8.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 12, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w', newline='') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_8.txt'
+
+ERROR:root:Data: ./data/raw/report_9.txt, Exception: [Errno 2] No such file or directory: '/data/temp/report_9.txt', Traceback: Traceback (most recent call last):
+  File "/workspaces/anaconda-postgres/utils/processing.py", line 12, in process_file
+    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w', newline='') as output_file:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/data/temp/report_9.txt'
+

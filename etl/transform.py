@@ -1,60 +1,44 @@
+# transform.py
 import os
 import sys
-import datetime
-import psycopg2
 import configparser
+import logging
+from tqdm import tqdm
+
+# Configure logging
+logging.basicConfig(filename='transform.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Load config file
 config = configparser.ConfigParser()
-config.read('/workspaces/anaconda-postgres/config/config.conf')
-paths = config['path']
-config_conf = config['database']
-sys.path.append(config['path']['root'])
+config.read('./config/config.conf')
+sys.path.append(".")
+from utils import processing as process
 
-from utils import (validation as validate,
-                   parsing as parse,
-                   insertion as insert)
-from utils.logging import cnx_error
+# Define the path to the raw data folder and temp output folder
+raw_data_folder = config['path']['download']
+temp_output_folder = config['path']['temp']
 
+# Process each file in the raw data directory
+files_in_folder = os.listdir(raw_data_folder)
+success_counter = 0
 
-# Connect to Postgres database
-cnx = psycopg2.connect(
-    database=config_conf['database'],
-    user=config_conf['user'],
-    password=config_conf['password'],
-    host=config_conf.get('host.db', 'localhost'),  # Use 'localhost' as default if not set
-    port=config_conf.get('port.db', '5432')  # Use '5432' as default if not set
-)
-cursor = cnx.cursor()
+# Use tqdm to show a progress bar
+for filename in tqdm(files_in_folder):
+    if filename.endswith('.txt'):
+        file_path = os.path.join(raw_data_folder, filename)
+        output_file_path = os.path.join(temp_output_folder, filename)  # Output path in the temp folder
+        process.process_file(file_path, output_file_path)  # Process the file and create the output
 
+        # Log processing information
+        logging.info(f"Processed: {file_path}")
+        logging.info(f"Output: {output_file_path}")
 
-# Process each file in temp directory
-for filename in os.listdir('/workspaces/anaconda-postgres/data/temp'):
-    if filename.endswith('.csv'):
-        with open(os.path.join('/workspaces/anaconda-postgres/data/temp', filename), 'r') as f:
-            for line in f:
-                row = line.strip().split(',')
-                if validate.layout(row):
-                    if validate.email(row[0]) and validate.date(row[1]):
-                        visitor = parse.visitor({'email': row[0], 'date': row[1]})
-                        statistics = parse.statistics({'email': row[0], 'jyv': row[2], 'Badmail': row[3], 'Baja': row[4], 'Fecha envio': row[5], 'Fecha open': row[6], 'Opens': row[7], 'Opens virales': row[8], 'Fecha click': row[9], 'Clicks': row[10], 'Clicks virales': row[11], 'Links': row[12], 'IPs': row[13], 'Navegadores': row[14], 'Plataformas': row[15]})
-                        try:
-                            # Insert visitor and statistics into Postgres tables
-                            visitor_insert = "INSERT INTO visitor (email, fechaPrimeraVisita, fechaUltimaVisita, visitasTotales, visitasAnioActual, visitasMesActual) VALUES (%s, %s, %s, %s, %s, %s)"
-                            cursor.execute(visitor_insert, (visitor['email'], visitor['fechaPrimeraVisita'], visitor['fechaUltimaVisita'], visitor['visitasTotales'], visitor['visitasAnioActual'], visitor['visitasMesActual']))
-                            statistics_insert = "INSERT INTO statistics (email, jyv, Badmail, Baja, Fecha_envio, Fecha_open, Opens, Opens_virales, Fecha_click, Clicks, Clicks_virales, Links, IPs, Navegadores, Plataformas) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                            cursor.execute(statistics_insert, (statistics['email'], statistics['jyv'], statistics['Badmail'], statistics['Baja'], statistics['Fecha envio'], statistics['Fecha open'], statistics['Opens'], statistics['Opens virales'], statistics['Fecha click'], statistics['Clicks'], statistics['Clicks virales'], statistics['Links'], statistics['IPs'], statistics['Navegadores'], statistics['Plataformas']))
-                            cnx.commit()
-                        except Exception as e:
-                            # Log error if insert fails
-                            cnx_error(row, str(e))
-                    else:
-                        # Log error if email or date is invalid
-                        cnx_error(row, 'Invalid email or date')
-        # Delete file once processed
-        os.remove(os.path.join('/workspaces/anaconda-postgres/data/temp', filename))
+        # Delete the processed file from the raw data folder
+        # os.remove(file_path)
+        logging.info(f"Deleted: {file_path}")
 
-# Close Postgres connection
-cursor.close()
-cnx.close()
+        success_counter += 1
 
+# Log a summary at the end
+logging.info(f"Data transformation and validation completed.")
+logging.info(f"{success_counter}/{len(files_in_folder)} files processed.")

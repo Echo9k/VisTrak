@@ -1,5 +1,4 @@
-from utils import (parsing as parse,
-                   logging)
+from utils import loggs, parse
 
 
 def insert_data(row, cnx):
@@ -33,7 +32,7 @@ def insert_visitor(visitor, cursor):
             visitor['visitasMesActual']
         ))
     except IntegrityError as e:
-        logging.error("Integrity error occurred: " + str(e))
+        loggs.error("Integrity error occurred: " + str(e))
         # Handle the unique violation error
         cnx.rollback()
 
@@ -74,7 +73,7 @@ def insert_statistics(statistics, cursor):
             statistics['plataformas']
         ))
     except IntegrityError as e:
-        logging.error("Integrity error occurred: " + str(e))
+        loggs.error("Integrity error occurred: " + str(e))
         # Handle the unique violation error
         cnx.rollback()
 
