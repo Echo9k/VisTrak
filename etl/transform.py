@@ -5,8 +5,6 @@ import configparser
 import logging
 from tqdm import tqdm
 
-# Configure logging
-logging.basicConfig(filename='transform.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Load config file
 config = configparser.ConfigParser()
@@ -14,9 +12,14 @@ config.read('./config/config.conf')
 sys.path.append(".")
 from utils import processing as process
 
+
 # Define the path to the raw data folder and temp output folder
-raw_data_folder = config['path']['download']
+raw_data_folder = config['path']['raw']
 temp_output_folder = config['path']['temp']
+path_logs = config['path']['log']
+
+# Configure logging
+logging.basicConfig(filename=path_logs, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Process each file in the raw data directory
 files_in_folder = os.listdir(raw_data_folder)
@@ -34,11 +37,12 @@ for filename in tqdm(files_in_folder):
         logging.info(f"Output: {output_file_path}")
 
         # Delete the processed file from the raw data folder
-        # os.remove(file_path)
-        logging.info(f"Deleted: {file_path}")
-
-        success_counter += 1
+        try:
+            os.remove(file_path)
+            logging.info(f"Deleted: {file_path}")
+            success_counter += 1
+        except Exception as e:
+            logging.error(f"Failed to delete: {file_path}: {e}")
 
 # Log a summary at the end
-logging.info(f"Data transformation and validation completed.")
-logging.info(f"{success_counter}/{len(files_in_folder)} files processed.")
+logging.info(f"Data transformation and validation completed.\t{success_counter}/{len(files_in_folder)}")
