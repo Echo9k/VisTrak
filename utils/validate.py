@@ -1,39 +1,53 @@
-# validation.py
-# Define validation functions
 import re
 from datetime import datetime
 
+email_regex = re.compile(r"(^[a-zA-Z0-9_.-]+(@gmail\.com$|[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+\.[a-zA-Z0-9])$)")
+
 
 def layout(row, expected_length):
-    expected_columns = expected_length  # Update the number based on your file structure
-    return len(row) == expected_columns
+    """
+    Checks if the length of the input row matches the expected length.
+
+    Args:
+        row (iterable): The row to be validated.
+        expected_length (int): The expected length of the row.
+
+    Returns:
+        bool: True if the length of the row matches the expected length, False otherwise.
+    """
+    return len(row) == expected_length
 
 
-def email(email):
-    # Regex for general email validation
-    general_email_regex = r"(^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+[a-zA-Z0-9])$"
-    
-    # Regex specifically for Gmail addresses
-    gmail_email_regex = r"(^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@gmail\.com$)"
-    
-    # If the domain is 'gmail.com', use the Gmail-specific regex
-    if email.lower().endswith('@gmail.com'):
-        return re.match(gmail_email_regex, email) is not None
-    else:  # Otherwise, use the general regex
-        return re.match(general_email_regex, email) is not None
+def email(email_address):
+    """
+    Checks if the input email address is valid according to a predefined regex pattern.
+
+    Args:
+        email_address (str): The email address to be validated.
+
+    Returns:
+        bool: True if the email address is valid, False otherwise.
+    """
+    email_to_check = (email_address
+                      if email_address.islower()
+                      else email_address.lower())
+    return email_regex.match(email_to_check) is not None
 
 
 def date(date_str):
-    if date_str and date_str != '-':
-        try:
-            # The date format in the CSV file
-            datetime.strptime(date_str, '%d/%m/%Y %H:%M')
-            return True
-        except ValueError:
-            # If an exception is caught, it means the date string is invalid
-            print(f"Invalid date format: {date_str}")
-            return False
-    return True
+    """
+    Checks if the input string represents a valid date in the format '%d/%m/%Y %H:%M'.
 
+    Args:
+        date_str (str): The string to be validated as a date.
 
-
+    Returns:
+        bool: True if the input string is a valid date, False otherwise.
+    """
+    if not date_str or date_str == '-' or len(date_str) != 16:
+        return False
+    try:
+        datetime.strptime(date_str, '%d/%m/%Y %H:%M')
+        return True
+    except ValueError:
+        return False

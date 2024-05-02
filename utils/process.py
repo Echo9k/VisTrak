@@ -1,181 +1,104 @@
 import traceback
 from datetime import datetime
-from utils import (insert,
-                   loggr as loggs,
-                   parse as parse)
-from psycopg2.errors import UniqueViolation
-        
-
-from utils import insert
-from utils import validate
+from utils import (loggr as loggs, insert, validate)
 
 
 def process_file(filename, cnx):
-    header_skipped = False
+    """
+    Processes a file by skipping the header row and processing each line.
+
+    Args:
+        filename (str): The path to the file to be processed.
+        cnx: The connection to the database.
+
+    Returns:
+        None
+    """
     with open(filename, 'r') as f:
+        next(f)  # Skip the header row
         for line in f:
-            if not header_skipped:  # Skip the header row
-                header_skipped = True
-                continue
-            process_line(filename=filename, cnx=cnx, line=line)  # Now we process the line assuming the header is already skipped
-
-
-def process_line(filename, cnx, line):
-    row = line.strip().split(',')
-    err_value = row  # Initialize to track the value causing an error
-    try:
-        # Validate the layout of the row
-        if not validate.layout(row, expected_length=15):
-            err_value = row
-            print(f"Validation failed: Layout validation failed for row {err_value}")
-            raise ValueError('Layout validation failed')
-
-        # Validate the email format
-        if row[0].lower() != 'email' and not validate.email(row[0]):
-            err_value = row[0]
-            print(f"Validation failed: Invalid email format for '{err_value}'")
-            raise ValueError('Invalid email format')
-
-        # Assume the date fields are at indices 4 (Fecha envio) and 5 (Fecha open), and index 8 (Fecha click)
-        date_indices = [4, 5, 8]
-        for i in date_indices:
-            if row[i] != '-' and not validate.date(row[i]):
-                err_value = row[i]
-                print(f"Validation failed: Invalid date format for '{err_value}' at position {i}")
-                raise ValueError('Invalid date format')
-
-        # If all validations pass
-        insert.insert_data(row, cnx)
-    # except UniqueViolation:
-    #     cnx.rollback()
-    except Exception as e:
-        loggs.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
+            process_line(filename=filename, cnx=cnx, line=line)
 
 
 def process_timestamp(timestamp_str, format='iso', return_type='str'):
     """
-    Converts a timestamp string to a datetime object or a string in the specified format.
-    If the input is not a valid timestamp, it returns None.
+    Processes a timestamp string, converting it to a datetime object or a formatted string.
+
+    Args:
+        timestamp_str (str): The timestamp string to process.
+        format (str): The format to return the timestamp in (default is 'iso').
+        return_type (str): The type of the return value (default is 'str').
+
+    Returns:
+        datetime object or formatted string, or None if the input is not a valid timestamp.
     """
-    try:# Convert to a datetime object
+    try:
         dt = datetime.strptime(timestamp_str, "%d/%m/%Y %H:%M")
-        
-        # Return datetime object if return_string is False
         if return_type == 'datetime':
             return dt
-        
-        # Return string in the specified format
-        if format == 'iso':
-            return dt.strftime("%Y-%m-%d %H:%M:%S")
-        else:
-            return dt.strftime(format)
-        
+        return dt.strftime("%Y-%m-%d %H:%M:%S") if format == 'iso' else dt.strftime(format)
     except ValueError:
-        # If there is a ValueError, it means the string was not in the expected format
         return None
-
-
-def format_datetime(dt, format='iso'):
-    if format == 'iso':
-        return dt.strftime("%Y-%m-%d %H:%M:%S")
-    else:
-        return dt.strftime(format)
 
 
 def process_date_field(date_str):
     """
-    Process a date string, returning it in ISO format if valid, or None otherwise.
+    Processes a date string, returning it in ISO format if valid, or None otherwise.
+
+    Args:
+        date_str (str): The date string to process.
+
+    Returns:
+        ISO formatted date string or None.
     """
     if validate.date(date_str) and date_str != '-':
-        date_obj = process_timestamp(date_str, return_type='datetime')
-        if date_obj:
-            return format_datetime(date_obj, format='iso')
+        if date_obj := process_timestamp(date_str, return_type='datetime'):
+            return date_obj.strftime("%Y-%m-%d %H:%M:%S")
     return None
 
 
 def clean_integer(value):
+    """
+    Cleans an input value by converting it to an integer.
+
+    Args:
+        value: The value to clean.
+
+    Returns:
+        int or None if the value is not a valid integer.
+    """
     try:
         return int(value)
     except ValueError:
-        # Return None if the value is not a valid integer
         return None
 
 
 def process_line(filename, cnx, line):
+    """
+    Processes a line from a file, validating its layout, email format, and date fields.
+
+    Args:
+        filename (str): The name of the file being processed.
+        cnx: The database connection.
+        line (str): The line to process.
+
+    Returns:
+        None
+    """
     row = line.strip().split(',')
-    err_value = row  # Initialize to track the value causing an error
+    err_value = row
     try:
-        # Validate the layout of the row
         if not validate.layout(row, expected_length=15):
-            err_value = row
             print(f"Validation failed: Layout validation failed for row {err_value}")
             raise ValueError('Layout validation failed')
-
-        # Validate the email format
         if row[0].lower() != 'email' and not validate.email(row[0]):
-            err_value = row[0]
-            print(f"Validation failed: Invalid email format for '{err_value}'")
+            print(f"Validation failed: Invalid email format for '{err_value[0]}'")
             raise ValueError('Invalid email format')
-
-        # Assume the date fields are at indices 4 (Fecha envio) and 5 (Fecha open), and index 8 (Fecha click)
         date_indices = [4, 5, 8]
         for i in date_indices:
             if row[i] != '-' and not validate.date(row[i]):
-                err_value = row[i]
-                print(f"Validation failed: Invalid date format for '{err_value}' at position {i}")
+                print(f"Validation failed: Invalid date format for '{row[i]}' at position {i}")
                 raise ValueError('Invalid date format')
-
-        # If all validations pass
         insert.insert_data(row, cnx)
-    # except UniqueViolation:
-    #     cnx.rollback()
     except Exception as e:
         loggs.cnx_error(filename, cnx, err_value, e, traceback.format_exc())
-
-
-def process_timestamp(timestamp_str, format='iso', return_type='str'):
-    """
-    Converts a timestamp string to a datetime object or a string in the specified format.
-    If the input is not a valid timestamp, it returns None.
-    """
-    try:# Convert to a datetime object
-        dt = datetime.strptime(timestamp_str, "%d/%m/%Y %H:%M")
-        
-        # Return datetime object if return_string is False
-        if return_type == 'datetime':
-            return dt
-        
-        # Return string in the specified format
-        if format == 'iso':
-            return dt.strftime("%Y-%m-%d %H:%M:%S")
-        else:
-            return dt.strftime(format)
-        
-    except ValueError:
-        # If there is a ValueError, it means the string was not in the expected format
-        return None
-
-def format_datetime(dt, format='iso'):
-    if format == 'iso':
-        return dt.strftime("%Y-%m-%d %H:%M:%S")
-    else:
-        return dt.strftime(format)
-
-
-def process_date_field(date_str):
-    """
-    Process a date string, returning it in ISO format if valid, or None otherwise.
-    """
-    if validate.date(date_str) and date_str != '-':
-        date_obj = process_timestamp(date_str, return_type='datetime')
-        if date_obj:
-            return format_datetime(date_obj, format='iso')
-    return None
-
-
-def clean_integer(value):
-    try:
-        return int(value)
-    except ValueError:
-        # Return None if the value is not a valid integer
-        return None

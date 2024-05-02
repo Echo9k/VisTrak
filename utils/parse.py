@@ -1,55 +1,77 @@
 from datetime import datetime
+from enum import Enum
 from utils import process
 
 
+class FieldIndex(Enum):
+    EMAIL = 0
+    DYNAMIC = 1
+    BAD_MAIL = 2
+    BAJA = 3
+    FIRST_VISIT = 4
+    LAST_VISIT = 5
+    OPEN = 6
+    OPEN_VIRAL = 7
+    CLICK = 8
+    CLICK_VIRAL = 9
+    LINK = 10
+    IP = 11
+    BROWSER = 12
+    PLATFORM = 13
+
+
+def convert_to_datetime_or_none(date_str):
+    return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S") if date_str else None
+
+
+def convert_to_boolean_or_none(value):
+    return None if value == '' else value.lower() in ['true', '1', 'yes']
+
+
+def get_row_data(row, field):
+    return row[field.value]
+
+
 def visitor(row):
-    email = row[0]
-    if not email or email == 'email':  # Skip if it's an empty email or the header
+    email = get_row_data(row, FieldIndex.EMAIL)
+    if not email or email == 'email':
         return None
 
-    first_visit_str = process.process_date_field(row[4])
-    last_visit_str = process.process_date_field(row[5])
-    # first_visit_str = first_visit_str or datetime.now()
-    # last_visit_str = last_visit_str or datetime.now()
-    first_visit_date = datetime.strptime(first_visit_str, "%Y-%m-%d %H:%M:%S") if first_visit_str else None
+    now = datetime.now()
+    first_visit_date = convert_to_datetime_or_none(
+        process.process_date_field(get_row_data(row, FieldIndex.FIRST_VISIT)))
 
-    current_year_visits = 0
-    current_month_visits = 0
-    if first_visit_date:
-        current_year = datetime.now().year
-        current_month = datetime.now().month
-        current_year_visits = 1 if first_visit_date.year == current_year else 0
-        current_month_visits = 1 if first_visit_date.month == current_month else 0
+    current_year_visits = int(first_visit_date and first_visit_date.year == now.year)
+    current_month_visits = int(first_visit_date and first_visit_date.month == now.month)
 
     return {
         'email': email,
-        'fechaPrimeraVisita': first_visit_str,
-        'fechaUltimaVisita': last_visit_str,
-        'visitasTotales': 1,  # This should be calculated based on data
+        'fechaPrimeraVisita': process.process_date_field(get_row_data(row, FieldIndex.FIRST_VISIT)),
+        'fechaUltimaVisita': process.process_date_field(get_row_data(row, FieldIndex.LAST_VISIT)),
+        'visitasTotales': 1,
         'visitasAnioActual': current_year_visits,
         'visitasMesActual': current_month_visits
     }
 
-    
-def statistics(row):
-    # Convert empty strings to None or a valid boolean representation
-    bad_mail = None if row[2] == '' else row[2].lower() in ['true', '1', 'yes']
-    baja = None if row[3] == '' else row[3].lower() in ['true', '1', 'yes']
 
+def statistics(row):
     return {
-        'email': row[0],
-        'dynamic': row[1],  # dynamic is a placeholder for (jk, ghj, vya)
-        'bad_mail': bad_mail,
-        'baja': baja,
-        'fecha_envio': process.process_timestamp(row[4]),
-        'fecha_apertura': process.process_timestamp(row[5]) if len(row) > 5 else None,
-        'opens': process.clean_integer(row[6]),
-        'opens_virales': row[7] if len(row) > 7 else None,
-        'fecha_click': process.process_timestamp(row[8]) if len(row) > 8 else None,
-        'clicks': process.clean_integer(row[9]),
-        'clicks_virales': process.clean_integer(row[10]) if len(row) > 10 else None,
-        'links': process.clean_integer(row[11]),
-        'ips': row[12],
-        'navegadores': row[13],
-        'plataformas': row[14],
+        'email': get_row_data(row, FieldIndex.EMAIL),
+        'dynamic': get_row_data(row, FieldIndex.DYNAMIC),
+        'bad_mail': convert_to_boolean_or_none(get_row_data(row, FieldIndex.BAD_MAIL)),
+        'baja': convert_to_boolean_or_none(get_row_data(row, FieldIndex.BAJA)),
+        'fecha_envio': process.process_timestamp(get_row_data(row, FieldIndex.FIRST_VISIT)),
+        'fecha_apertura': process.process_timestamp(get_row_data(row, FieldIndex.LAST_VISIT)) if len(
+            row) > FieldIndex.LAST_VISIT.value else None,
+        'opens': process.clean_integer(get_row_data(row, FieldIndex.OPEN)),
+        'opens_virales': get_row_data(row, FieldIndex.OPEN_VIRAL) if len(row) > FieldIndex.OPEN_VIRAL.value else None,
+        'fecha_click': process.process_timestamp(get_row_data(row, FieldIndex.CLICK)) if len(
+            row) > FieldIndex.CLICK.value else None,
+        'clicks': process.clean_integer(get_row_data(row, FieldIndex.CLICK)),
+        'clicks_virales': process.clean_integer(get_row_data(row, FieldIndex.CLICK_VIRAL)) if len(
+            row) > FieldIndex.CLICK_VIRAL.value else None,
+        'links': process.clean_integer(get_row_data(row, FieldIndex.LINK)),
+        'ips': get_row_data(row, FieldIndex.IP),
+        'navegadores': get_row_data(row, FieldIndex.BROWSER),
+        'plataformas': get_row_data(row, FieldIndex.PLATFORM),
     }
