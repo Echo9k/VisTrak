@@ -1,6 +1,7 @@
 from datetime import datetime
 from enum import Enum
 from utils import process
+from utils.helpers import get_row_data
 
 
 class FieldIndex(Enum):
@@ -26,10 +27,6 @@ def convert_to_datetime_or_none(date_str):
 
 def convert_to_boolean_or_none(value):
     return None if value == '' else value.lower() in ['true', '1', 'yes']
-
-
-def get_row_data(row, field):
-    return row[field.value]
 
 
 def visitor(row):
@@ -61,15 +58,15 @@ def statistics(row):
         'bad_mail': convert_to_boolean_or_none(get_row_data(row, FieldIndex.BAD_MAIL)),
         'baja': convert_to_boolean_or_none(get_row_data(row, FieldIndex.BAJA)),
         'fecha_envio': process.process_timestamp(get_row_data(row, FieldIndex.FIRST_VISIT)),
-        'fecha_apertura': process.process_timestamp(get_row_data(row, FieldIndex.LAST_VISIT)) if len(
-            row) > FieldIndex.LAST_VISIT.value else None,
+        'fecha_apertura': (process.process_timestamp(get_row_data(row, FieldIndex.LAST_VISIT))
+                           if len(row) > FieldIndex.LAST_VISIT.value else None),
         'opens': process.clean_integer(get_row_data(row, FieldIndex.OPEN)),
         'opens_virales': get_row_data(row, FieldIndex.OPEN_VIRAL) if len(row) > FieldIndex.OPEN_VIRAL.value else None,
-        'fecha_click': process.process_timestamp(get_row_data(row, FieldIndex.CLICK)) if len(
-            row) > FieldIndex.CLICK.value else None,
+        'fecha_click': (process.process_timestamp(get_row_data(row, FieldIndex.CLICK))
+                        if len(row) > FieldIndex.CLICK.value else None),
         'clicks': process.clean_integer(get_row_data(row, FieldIndex.CLICK)),
-        'clicks_virales': process.clean_integer(get_row_data(row, FieldIndex.CLICK_VIRAL)) if len(
-            row) > FieldIndex.CLICK_VIRAL.value else None,
+        'clicks_virales': (process.clean_integer(get_row_data(row, FieldIndex.CLICK_VIRAL))
+                           if len(row) > FieldIndex.CLICK_VIRAL.value else None),
         'links': process.clean_integer(get_row_data(row, FieldIndex.LINK)),
         'ips': get_row_data(row, FieldIndex.IP),
         'navegadores': get_row_data(row, FieldIndex.BROWSER),

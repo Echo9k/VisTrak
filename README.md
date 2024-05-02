@@ -46,7 +46,7 @@ Will sequentially execute:
 ## Implementation
 ### Extract
 
-- **SFTP Connection**: Establish a connection to the SFTP server (8.8.8.8) to access `/home/vinkOS/archivosVisitas` (For the simulation we actually use `/sftp-mock/data/`).
+- **SFTP Connection**: Establish a connection to the SFTP server (8.8.8.8) to access `./vinkOS/archivosVisitas` (For the simulation we actually use `/sftp-mock/data/`).
 - **File Download**: Target files with the `report_*.txt` pattern. Downloaded files are temporarily stored in `/tmp/visitas`.
 
 ### Transform

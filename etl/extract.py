@@ -1,4 +1,7 @@
-import configparser
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd()))
+
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -6,23 +9,24 @@ import json
 import zipfile
 import logging
 
+from utils.loggr import Logger
+from utils.helpers import get_conf_info, get_path
 
 # Read the config file for the ETL process
-config = configparser.ConfigParser()
-config.read("./config/config.conf")
-
+module = "log." + os.path.basename(__file__).replace(".py", "")
+logr = Logger(module, logging.INFO)
+config = logr.config
 # Configure logging
-log_dir = config['path']['log']+"extract.log"
-logging.basicConfig(filename=log_dir, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-source_dir = config['path']['source']
-raw_dir = config['path']['raw']
-backup_dir = config['path']['backup']
+source_dir = get_conf_info(config, 'source')
+raw_dir = get_conf_info(config, 'raw')
+backup_dir = get_conf_info(config, 'backup')
+sv_dir = get_path(config, 'config.sv')
 logging.info(f"Source directory: {source_dir}")
 logging.info(f"Raw directory: {raw_dir}")
 
 # Read the config file for the mock server
-with open(config['path']['config.sv']) as f:
+with open(sv_dir) as f:
     config_server = json.load(f)
 
 logging.info("Downloading files from the mock server...")

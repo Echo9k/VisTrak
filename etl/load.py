@@ -1,24 +1,43 @@
 import os
 import sys
 import json
+import tqdm
 import psycopg2
-import configparser
 
+import logging
+import psycopg2
 
-# Load config file
-config = configparser.ConfigParser()
-config.read('./config/config.conf')
+# Custom utilities
+from utils import process as process
+from utils.loggr import Logger
+from utils.helpers import get_conf_info, get_path
 
-# Load configuration file (json format) for source database 
-with open(config['path']['config.sv']) as json_file:
-    source = json.load(json_file)
+# Configure logging
+module = "log." + os.path.basename(__file__).replace(".py", "")
+logger = Logger(module, logging.INFO)
+config = logger.config
 
 # Load configuration file (json format) for target database
-DATA_DIR = config['path']['data']
-HOST = config['database']['host.sv']
-PORT = config['database']['port.sv']
-paths = config['path']
-temp_dir = paths['temp']
+base_dir = config["path"]["root"]
+HOST = get_conf_info(config, 'host.sv', section='database')
+PORT = get_conf_info(config, 'port.sv', section='database')
+temp_dir = get_path(config, 'temp')
+
+# Define the path to the raw data folder and temp output folder based on environment variables
+base_dir = config["path"]["root"]  # Provide a default base directory
+raw_dir = get_path(config, 'raw')
+temp_output_folder = get_path(config, 'temp')
+log_dir = get_path(config, 'log.transform')
+
+# Load configuration file (json format) for source database 
+with open(get_path(config, 'config.sv')) as json_file:
+    source = json.load(json_file)
+
+# Ensure directories exist
+os.makedirs(raw_dir, exist_ok=True)
+os.makedirs(temp_output_folder, exist_ok=True)
+
+
 
 # Add root directory to sys.path
 # This is necessary in my environment
@@ -36,15 +55,21 @@ cnx = psycopg2.connect(
 )
 
 
-# Usage
-temp_dir = paths['temp']
-for filename in os.listdir(temp_dir):
-    print(filename)
-    if filename.endswith('.txt'):
-        full_path = os.path.join(temp_dir, filename)
-        process.process_file(full_path, cnx)
-        os.remove(full_path)
+# Usage of process.process_file() function
+if temp_dir:
+    files_in_folder = os.listdir(temp_dir)
+    print("Files to load:", len(files_in_folder))
+    for filename in tqdm.tqdm(files_in_folder, desc="Processing files"):
+        print(filename)
+        if filename.endswith('.txt'):
+            full_path = os.path.join(temp_dir, filename)
+            process.process_file(full_path, cnx)
+            os.remove(full_path)
 
+    print("✅ Done loading files")
+else:
+    print("No files to load")
 
+print("😊 load.py is complete")
 # Close Postgres connection
 cnx.close()

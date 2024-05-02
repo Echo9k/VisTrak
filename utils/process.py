@@ -1,6 +1,8 @@
+# process.py
+
 import traceback
 from datetime import datetime
-from utils import (loggr as loggs, insert, validate)
+from utils import loggr as loggs, insert, validate
 
 
 def process_file(filename, cnx):

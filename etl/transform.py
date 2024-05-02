@@ -1,48 +1,68 @@
 # transform.py
 import os
 import sys
-import configparser
 import logging
+import traceback
 from tqdm import tqdm
+import psycopg2
 
-
-# Load config file
-config = configparser.ConfigParser()
-config.read('./config/config.conf')
-sys.path.append(".")
-from utils import processing as process
-
-
-# Define the path to the raw data folder and temp output folder
-raw_data_folder = config['path']['raw']
-temp_output_folder = config['path']['temp']
-path_logs = config['path']['log'] + 'transform.log'
+# Custom utilities
+from utils import process as process
+from utils.loggr import Logger
+from utils.helpers import get_path
 
 # Configure logging
-logging.basicConfig(filename=path_logs, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+module = "log." + os.path.basename(__file__).replace(".py", "")
+logger = Logger(module, logging.INFO)
+config = logger.config
 
-# Process each file in the raw data directory
-files_in_folder = os.listdir(raw_data_folder)
-success_counter = 0
+# Define the path to the raw data folder and temp output folder based on environment variables
+base_dir = config["path"]["root"]  # Provide a default base directory
+raw_dir = get_path(config, 'raw')
+temp_output_folder = get_path(config, 'temp')
+log_dir = get_path(config, 'log.transform')
 
-# Use tqdm to show a progress bar
-for filename in tqdm(files_in_folder):
-    if filename.endswith('.txt'):
-        file_path = os.path.join(raw_data_folder, filename)
-        output_file_path = os.path.join(temp_output_folder, filename)  # Output path in the temp folder
-        process.process_file(file_path, output_file_path)  # Process the file and create the output
+# Ensure directories exist
+os.makedirs(raw_dir, exist_ok=True)
+os.makedirs(temp_output_folder, exist_ok=True)
 
-        # Log processing information
-        logging.info(f"Processed: {file_path}")
-        logging.info(f"Output: {output_file_path}")
+# Set up database connection
+def get_database_connection():
+    try:
+        return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+    except Exception as e:
+        logger.log_error("Database connection failed", e, traceback.format_exc())
+        return None
 
-        # Delete the processed file from the raw data folder
-        try:
-            os.remove(file_path)
-            logging.info(f"Deleted: {file_path}")
-            success_counter += 1
-        except Exception as e:
-            logging.error(f"Failed to delete: {file_path}: {e}")
+# Process files in the directory
+def process_files():
+    files_in_folder = os.listdir(raw_dir)
+    success_counter = 0
 
-# Log a summary at the end
-logging.info(f"Data transformation and validation completed.\t{success_counter}/{len(files_in_folder)}")
+    for filename in tqdm(files_in_folder, desc="Processing files"):
+        if filename.endswith('.txt'):
+            file_path = os.path.join(raw_dir, filename)
+            output_file_path = os.path.join(temp_output_folder, filename.replace('.txt', '_processed.txt'))
+
+            cnx = get_database_connection()
+            if cnx:
+                try:
+                    process.process_file(file_path, cnx)  # Process the file and create the output
+                    logger.info(f"Processed: {file_path}")
+                    logger.info(f"Output: {output_file_path}")
+
+                    os.remove(file_path)
+                    logger.info(f"Deleted: {file_path}")
+                    success_counter += 1
+                except Exception as e:
+                    logger.log_error(f"Error processing file: {file_path}", e, traceback.format_exc())
+                finally:
+                    cnx.close()
+            else:
+                logging.error(f"Skipped processing due to failed database connection: {file_path}")
+
+    # Log summary
+    logging.info(f"Data transformation and validation completed. {success_counter}/{len(files_in_folder)} files processed.")
+
+if __name__ == '__main__':
+    process_files()

@@ -1,1 +1,623 @@
+2024-05-02 02:23:57,167 - INFO - Processed: ./data/raw/report_7.txt
+2024-05-02 02:23:57,167 - INFO - Output: ./data/processed/temp/report_7.txt
+2024-05-02 02:23:57,170 - INFO - Deleted: ./data/raw/report_7.txt
+2024-05-02 02:23:57,189 - INFO - Processed: ./data/raw/report_8.txt
+2024-05-02 02:23:57,190 - INFO - Output: ./data/processed/temp/report_8.txt
+2024-05-02 02:23:57,193 - INFO - Deleted: ./data/raw/report_8.txt
+2024-05-02 02:23:57,217 - INFO - Processed: ./data/raw/report_9.txt
+2024-05-02 02:23:57,217 - INFO - Output: ./data/processed/temp/report_9.txt
+2024-05-02 02:23:57,220 - INFO - Deleted: ./data/raw/report_9.txt
+2024-05-02 02:23:57,221 - INFO - Data transformation and validation completed.	3/3
+2024-05-02 07:04:29,771 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
 
+
+2024-05-02 07:05:22,160 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:05:53,343 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:05:53,344 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:05:57,072 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:05:57,072 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:06:00,814 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:06:00,814 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:06:43,333 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:06:43,333 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:06:47,072 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:06:47,072 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:06:50,806 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 35, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:06:50,806 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:06:50,807 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:11:13,071 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:11:13,072 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:11:16,787 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:11:16,787 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:11:20,561 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:11:20,562 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:11:20,563 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:13:51,413 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:13:51,414 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:13:55,150 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:13:55,151 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:13:58,875 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:13:58,876 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:13:58,877 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:14:53,129 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:14:53,130 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:14:56,863 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:14:56,863 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:15:00,660 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:15:00,660 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:15:00,661 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:15:34,762 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:15:34,763 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:15:38,492 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:15:38,493 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:15:42,268 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:15:42,269 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:15:42,270 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:16:31,408 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:16:31,408 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:16:35,136 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:16:35,137 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:16:38,869 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:16:38,869 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:16:38,870 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:17:17,449 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:17:17,450 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:17:21,168 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:17:21,169 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:17:24,901 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 31, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:17:24,901 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:17:24,902 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:25:05,976 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:25:05,976 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:25:09,704 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:25:09,704 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:25:13,536 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:25:13,537 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:25:13,538 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:29:46,639 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:29:46,640 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:29:50,363 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:29:50,363 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:29:54,163 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:29:54,164 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:29:54,165 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:31:40,270 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:31:40,271 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:31:43,998 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:31:43,999 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:31:47,782 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:31:47,783 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:31:47,784 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:32:38,155 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:32:38,155 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:32:41,875 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:32:41,876 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:32:45,646 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:32:45,646 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:32:45,647 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:34:27,235 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:34:27,236 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:34:30,964 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:34:30,965 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:34:34,734 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:34:34,734 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:34:34,735 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:34:52,456 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:34:52,456 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:34:56,248 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:34:56,248 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:35:00,016 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:35:00,017 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:35:00,018 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:35:16,105 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:35:16,105 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:35:19,820 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:35:19,821 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:35:23,577 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:35:23,577 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:35:23,578 - INFO - Data transformation and validation completed. 0/3 files processed.
+2024-05-02 07:38:25,650 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:38:25,651 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_7.txt
+2024-05-02 07:38:29,381 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:38:29,382 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_8.txt
+2024-05-02 07:38:33,139 - ERROR - Data: Database connection failed, Exception: could not translate host name "hostname" to address: Name or service not known
+, Traceback: Traceback (most recent call last):
+  File "/workspaces/VisTrak/etl/transform.py", line 32, in get_database_connection
+    return psycopg2.connect("dbname='database_name' user='username' host='hostname' password='password'")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "hostname" to address: Name or service not known
+
+
+2024-05-02 07:38:33,140 - ERROR - Skipped processing due to failed database connection: /workspaces/VisTrak/data/raw/report_9.txt
+2024-05-02 07:38:33,141 - INFO - Data transformation and validation completed. 0/3 files processed.

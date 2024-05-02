@@ -1,50 +1,15 @@
-2023-11-10 18:52:30,209 - INFO - Source directory: ./sftp-server/data/
-2023-11-10 18:52:30,209 - INFO - Raw directory: ./data/raw/
-2023-11-10 18:52:30,209 - INFO - Downloading files from the mock server...
-2023-11-10 18:52:30,213 - INFO - Response status code: 200
-2023-11-10 18:52:30,214 - INFO - Found 3 files
-2023-11-10 18:52:30,214 - INFO - Found file: report_7.txt
-2023-11-10 18:52:30,214 - INFO - Downloading: report_7.txt
-2023-11-10 18:52:30,219 - INFO - Downloaded: report_7.txt
-2023-11-10 18:52:30,219 - INFO - Backed up: report_7.txt in ZIP format at ./data/processed/archive/report_7.txt.zip
-2023-11-10 18:52:30,222 - INFO - Deleted: report_7.txt from the server
-2023-11-10 18:52:30,222 - INFO - Found file: report_8.txt
-2023-11-10 18:52:30,222 - INFO - Downloading: report_8.txt
-2023-11-10 18:52:30,224 - INFO - Downloaded: report_8.txt
-2023-11-10 18:52:30,225 - INFO - Backed up: report_8.txt in ZIP format at ./data/processed/archive/report_8.txt.zip
-2023-11-10 18:52:30,228 - INFO - Deleted: report_8.txt from the server
-2023-11-10 18:52:30,228 - INFO - Found file: report_9.txt
-2023-11-10 18:52:30,228 - INFO - Downloading: report_9.txt
-2023-11-10 18:52:30,230 - INFO - Downloaded: report_9.txt
-2023-11-10 18:52:30,231 - INFO - Backed up: report_9.txt in ZIP format at ./data/processed/archive/report_9.txt.zip
-2023-11-10 18:52:30,233 - INFO - Deleted: report_9.txt from the server
-2023-11-10 19:02:04,147 - INFO - Source directory: ./sftp-server/data/
-2023-11-10 19:02:04,147 - INFO - Raw directory: ./data/raw/
-2023-11-10 19:02:04,147 - INFO - Downloading files from the mock server...
-2023-11-10 19:02:04,151 - INFO - Response status code: 200
-2023-11-10 19:02:04,152 - INFO - Found 3 files
-2023-11-10 19:02:04,152 - INFO - Found file: report_7.txt
-2023-11-10 19:02:04,152 - INFO - Downloading: report_7.txt
-2023-11-10 19:02:04,155 - INFO - Downloaded: report_7.txt
-2023-11-10 19:02:04,156 - INFO - Backed up: report_7.txt in ZIP format at ./data/processed/archive/report_7.txt.zip
-2023-11-10 19:02:04,158 - INFO - Deleted: report_7.txt from the server
-2023-11-10 19:02:04,158 - INFO - Found file: report_8.txt
-2023-11-10 19:02:04,158 - INFO - Downloading: report_8.txt
-2023-11-10 19:02:04,160 - INFO - Downloaded: report_8.txt
-2023-11-10 19:02:04,161 - INFO - Backed up: report_8.txt in ZIP format at ./data/processed/archive/report_8.txt.zip
-2023-11-10 19:02:04,164 - INFO - Deleted: report_8.txt from the server
-2023-11-10 19:02:04,164 - INFO - Found file: report_9.txt
-2023-11-10 19:02:04,164 - INFO - Downloading: report_9.txt
-2023-11-10 19:02:04,166 - INFO - Downloaded: report_9.txt
-2023-11-10 19:02:04,168 - INFO - Backed up: report_9.txt in ZIP format at ./data/processed/archive/report_9.txt.zip
-2023-11-10 19:02:04,170 - INFO - Deleted: report_9.txt from the server
-2023-11-10 19:02:24,079 - INFO - Source directory: ./sftp-server/data/
-2023-11-10 19:02:24,079 - INFO - Raw directory: ./data/raw/
-2023-11-10 19:02:24,079 - INFO - Downloading files from the mock server...
-2023-11-10 19:02:24,082 - INFO - Response status code: 200
-2023-11-10 19:02:24,083 - INFO - Found 0 files
-2023-11-10 19:03:16,721 - INFO - Source directory: ./sftp-server/data/
-2023-11-10 19:03:16,721 - INFO - Raw directory: ./data/raw/
-2023-11-10 19:03:16,721 - INFO - Downloading files from the mock server...
-2023-11-10 19:03:16,725 - INFO - Response status code: 200
-2023-11-10 19:03:16,725 - INFO - Found 0 files
+2024-05-02 02:23:56,858 - INFO - Source directory: ./sftp-server/data/
+2024-05-02 02:23:56,858 - INFO - Raw directory: ./data/raw/
+2024-05-02 02:23:56,861 - INFO - Downloading files from the mock server...
+2024-05-02 02:23:56,870 - INFO - Response status code: 200
+2024-05-02 02:23:56,871 - INFO - Found 0 files
+2024-05-02 04:08:55,211 - INFO - Source directory: ./sftp-server/data/
+2024-05-02 04:08:55,212 - INFO - Raw directory: ./data/raw/
+2024-05-02 04:08:55,218 - INFO - Downloading files from the mock server...
+2024-05-02 04:08:55,229 - INFO - Response status code: 404
+2024-05-02 04:08:55,229 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 04:09:49,157 - INFO - Source directory: ./sftp-server/data/
+2024-05-02 04:09:49,168 - INFO - Raw directory: ./data/raw/
+2024-05-02 04:09:49,172 - INFO - Downloading files from the mock server...
+2024-05-02 04:09:49,182 - INFO - Response status code: 404
+2024-05-02 04:09:49,182 - ERROR - Failed to fetch the mock server page with status code: 404
