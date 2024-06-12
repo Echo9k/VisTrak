@@ -1,0 +1,150 @@
+2024-05-02 06:47:58,706 - INFO - Source directory: /sftp-server/data/
+2024-05-02 06:47:58,706 - INFO - Raw directory: /data/raw/
+2024-05-02 06:47:58,711 - INFO - Downloading files from the mock server...
+2024-05-02 06:47:58,721 - INFO - Response status code: 404
+2024-05-02 06:47:58,722 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 06:53:37,383 - INFO - Source directory: /sftp-server/data/
+2024-05-02 06:53:37,384 - INFO - Raw directory: /data/raw/
+2024-05-02 06:53:37,387 - INFO - Downloading files from the mock server...
+2024-05-02 06:53:37,395 - INFO - Response status code: 404
+2024-05-02 06:53:37,407 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 06:58:42,022 - INFO - Source directory: /sftp-server/data/
+2024-05-02 06:58:42,022 - INFO - Raw directory: /data/raw/
+2024-05-02 06:58:42,024 - INFO - Downloading files from the mock server...
+2024-05-02 06:58:42,032 - INFO - Response status code: 404
+2024-05-02 06:58:42,032 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 06:59:46,358 - INFO - Source directory: /sftp-server/data/
+2024-05-02 06:59:46,358 - INFO - Raw directory: /data/raw/
+2024-05-02 06:59:46,362 - INFO - Downloading files from the mock server...
+2024-05-02 06:59:46,370 - INFO - Response status code: 404
+2024-05-02 06:59:46,370 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:00:33,051 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:00:33,052 - INFO - Raw directory: /data/raw/
+2024-05-02 07:00:33,054 - INFO - Downloading files from the mock server...
+2024-05-02 07:00:33,061 - INFO - Response status code: 404
+2024-05-02 07:00:33,062 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:00:47,196 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:00:47,196 - INFO - Raw directory: /data/raw/
+2024-05-02 07:00:47,199 - INFO - Downloading files from the mock server...
+2024-05-02 07:00:47,205 - INFO - Response status code: 404
+2024-05-02 07:00:47,206 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:01:52,067 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:01:52,067 - INFO - Raw directory: /data/raw/
+2024-05-02 07:01:52,071 - INFO - Downloading files from the mock server...
+2024-05-02 07:01:52,078 - INFO - Response status code: 404
+2024-05-02 07:01:52,078 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:02:23,666 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:02:23,666 - INFO - Raw directory: /data/raw/
+2024-05-02 07:02:23,671 - INFO - Downloading files from the mock server...
+2024-05-02 07:02:23,678 - INFO - Response status code: 404
+2024-05-02 07:02:23,679 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:02:36,135 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:02:36,136 - INFO - Raw directory: /data/raw/
+2024-05-02 07:02:36,139 - INFO - Downloading files from the mock server...
+2024-05-02 07:02:36,146 - INFO - Response status code: 404
+2024-05-02 07:02:36,147 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:03:27,021 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:03:27,021 - INFO - Raw directory: /data/raw/
+2024-05-02 07:03:27,024 - INFO - Downloading files from the mock server...
+2024-05-02 07:03:27,031 - INFO - Response status code: 404
+2024-05-02 07:03:27,032 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:03:48,024 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:03:48,024 - INFO - Raw directory: /data/raw/
+2024-05-02 07:03:48,028 - INFO - Downloading files from the mock server...
+2024-05-02 07:03:48,035 - INFO - Response status code: 404
+2024-05-02 07:03:48,035 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:04:25,606 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:04:25,606 - INFO - Raw directory: /data/raw/
+2024-05-02 07:04:25,609 - INFO - Downloading files from the mock server...
+2024-05-02 07:04:25,617 - INFO - Response status code: 404
+2024-05-02 07:04:25,617 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:05:18,075 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:05:18,076 - INFO - Raw directory: /data/raw/
+2024-05-02 07:05:18,078 - INFO - Downloading files from the mock server...
+2024-05-02 07:05:18,084 - INFO - Response status code: 404
+2024-05-02 07:05:18,085 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:05:49,268 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:05:49,269 - INFO - Raw directory: /data/raw/
+2024-05-02 07:05:49,272 - INFO - Downloading files from the mock server...
+2024-05-02 07:05:49,278 - INFO - Response status code: 404
+2024-05-02 07:05:49,279 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:06:39,102 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:06:39,103 - INFO - Raw directory: /data/raw/
+2024-05-02 07:06:39,106 - INFO - Downloading files from the mock server...
+2024-05-02 07:06:39,114 - INFO - Response status code: 404
+2024-05-02 07:06:39,115 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:11:08,953 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:11:08,954 - INFO - Raw directory: /data/raw/
+2024-05-02 07:11:08,957 - INFO - Downloading files from the mock server...
+2024-05-02 07:11:08,965 - INFO - Response status code: 404
+2024-05-02 07:11:08,966 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:13:47,339 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:13:47,339 - INFO - Raw directory: /data/raw/
+2024-05-02 07:13:47,343 - INFO - Downloading files from the mock server...
+2024-05-02 07:13:47,350 - INFO - Response status code: 404
+2024-05-02 07:13:47,351 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:14:48,998 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:14:48,999 - INFO - Raw directory: /data/raw/
+2024-05-02 07:14:49,001 - INFO - Downloading files from the mock server...
+2024-05-02 07:14:49,009 - INFO - Response status code: 404
+2024-05-02 07:14:49,009 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:15:30,591 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:15:30,591 - INFO - Raw directory: /data/raw/
+2024-05-02 07:15:30,595 - INFO - Downloading files from the mock server...
+2024-05-02 07:15:30,604 - INFO - Response status code: 404
+2024-05-02 07:15:30,604 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:16:27,299 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:16:27,299 - INFO - Raw directory: /data/raw/
+2024-05-02 07:16:27,302 - INFO - Downloading files from the mock server...
+2024-05-02 07:16:27,308 - INFO - Response status code: 404
+2024-05-02 07:16:27,309 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:17:13,358 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:17:13,358 - INFO - Raw directory: /data/raw/
+2024-05-02 07:17:13,360 - INFO - Downloading files from the mock server...
+2024-05-02 07:17:13,366 - INFO - Response status code: 404
+2024-05-02 07:17:13,367 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:24:40,911 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:24:40,911 - INFO - Raw directory: /data/raw/
+2024-05-02 07:24:40,914 - INFO - Downloading files from the mock server...
+2024-05-02 07:24:40,922 - INFO - Response status code: 404
+2024-05-02 07:24:40,922 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:25:01,853 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:25:01,854 - INFO - Raw directory: /data/raw/
+2024-05-02 07:25:01,857 - INFO - Downloading files from the mock server...
+2024-05-02 07:25:01,865 - INFO - Response status code: 404
+2024-05-02 07:25:01,865 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:29:42,493 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:29:42,493 - INFO - Raw directory: /data/raw/
+2024-05-02 07:29:42,496 - INFO - Downloading files from the mock server...
+2024-05-02 07:29:42,502 - INFO - Response status code: 404
+2024-05-02 07:29:42,503 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:31:36,205 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:31:36,205 - INFO - Raw directory: /data/raw/
+2024-05-02 07:31:36,209 - INFO - Downloading files from the mock server...
+2024-05-02 07:31:36,216 - INFO - Response status code: 404
+2024-05-02 07:31:36,216 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:32:34,088 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:32:34,088 - INFO - Raw directory: /data/raw/
+2024-05-02 07:32:34,092 - INFO - Downloading files from the mock server...
+2024-05-02 07:32:34,098 - INFO - Response status code: 404
+2024-05-02 07:32:34,098 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:34:23,123 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:34:23,123 - INFO - Raw directory: /data/raw/
+2024-05-02 07:34:23,126 - INFO - Downloading files from the mock server...
+2024-05-02 07:34:23,132 - INFO - Response status code: 404
+2024-05-02 07:34:23,133 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:34:48,298 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:34:48,298 - INFO - Raw directory: /data/raw/
+2024-05-02 07:34:48,301 - INFO - Downloading files from the mock server...
+2024-05-02 07:34:48,308 - INFO - Response status code: 404
+2024-05-02 07:34:48,309 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:35:12,003 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:35:12,003 - INFO - Raw directory: /data/raw/
+2024-05-02 07:35:12,007 - INFO - Downloading files from the mock server...
+2024-05-02 07:35:12,013 - INFO - Response status code: 404
+2024-05-02 07:35:12,013 - ERROR - Failed to fetch the mock server page with status code: 404
+2024-05-02 07:38:21,513 - INFO - Source directory: /sftp-server/data/
+2024-05-02 07:38:21,513 - INFO - Raw directory: /data/raw/
+2024-05-02 07:38:21,516 - INFO - Downloading files from the mock server...
+2024-05-02 07:38:21,523 - INFO - Response status code: 404
+2024-05-02 07:38:21,524 - ERROR - Failed to fetch the mock server page with status code: 404

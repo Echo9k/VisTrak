@@ -20,7 +20,6 @@ CREATE TABLE statistics (
   ips TEXT,
   navegadores TEXT,
   plataformas TEXT,
-  CONSTRAINT pk_statistics PRIMARY KEY (email),
   CONSTRAINT fk_statistics_email FOREIGN KEY (email) REFERENCES visitor(email)
 );
 

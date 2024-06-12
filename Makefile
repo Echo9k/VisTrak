@@ -71,3 +71,8 @@ clean: sftp-teardow
 	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
 	# Add any other cleanup actions as needed
+
+
+# To connect to the database
+pqsl:
+	psql -h localhost -p 5432 -U postgres -d postgres
