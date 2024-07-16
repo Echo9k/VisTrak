@@ -22,19 +22,18 @@ setup-python:
 	@echo "Installing Python requirements..."
 	pip install -r requirements.txt
 
-etl-setup: create-directories setup-postgres setup-python
+setup-etl: create-directories setup-postgres setup-python
 	@echo "Setting up ETL environment..."
 	# Add any ETL specific setup here
 	# Setup crontab for etl.sh, uncomment if needed
 	# (crontab -l 2>/dev/null; echo "2 0 * * * bash etl/etl.sh &") | crontab -
 
-sftp-setup:
+setup-sftp:
 	@echo "Setting up the mock SFTP server..."
 	mkdir -p ./vinkOS/archivosVisitas/
 	sudo chmod 777 ./vinkOS/archivosVisitas/
 	cp config/pg-server.config ./vinkOS/archivosVisitas/config.json
 	python3 sftp-server/sftp-mock.py & echo $$! > sftp.pid
-
 
 etl-run:
 	@echo "Running ETL process..."
@@ -47,7 +46,6 @@ etl-run:
 	@echo "Loading data..."
 	@export BASE_DIR=$(BASE_DIR); \
 	PYTHONPATH=$(BASE_DIR) python $(BASE_DIR)/etl/load.py
-
 
 etl: etl-setup sftp-setup etl-run
 	@echo "Running ETL process..."
@@ -66,12 +64,11 @@ sftp-update:
 	@echo "Updating the mock SFTP server..."
 	# Placeholder for update logic
 
-clean: sftp-teardow
+clean: sftp-teardown
 	@echo "Cleaning up..."
 	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
 	# Add any other cleanup actions as needed
-
 
 # To connect to the database
 pqsl:

@@ -2,9 +2,12 @@ import http.server
 import logging
 import socketserver
 import os
+import sys
 
-from etl.load import DATA_DIR
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.helpers import read_config_file
+
+logging.basicConfig(level=logging.INFO)
 
 
 class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -14,7 +17,8 @@ class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
     """
 
     def __init__(self, *args, **kwargs):
-        self.directory = DATA_DIR
+        # The path to the data directory using the config file
+        self.directory = read_config_file('./config/config.conf')['path']['data']
         super().__init__(*args, directory=self.directory, **kwargs)
 
     def do_DELETE(self):
@@ -48,10 +52,13 @@ class MockRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
 
-paths = read_config_file('./config/config.conf')['path']
+database_config = read_config_file('./config/config.conf')['database']
 
-PORT = paths['port.sv']
-HOST = paths['host.sv']
+PORT = int(database_config['port.sv'])
+HOST = database_config['host.sv']
+# logging port and host for debugging, including data type
+logging.debug(f"Host: {HOST}", type(HOST))
+logging.debug(f"Port: {PORT}", type(PORT))
 
 # Start the mock server
 with socketserver.TCPServer((HOST, PORT), MockRequestHandler) as httpd:

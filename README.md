@@ -5,9 +5,9 @@
 Use the Makefile to install all necessary stuff by running
 
 ```bash
-make postgres-setup
-make sftp-setup
-make etl-setup
+make setup-postgres
+make setup-sftp
+make setup-etl
 ```
 
 ## Start the mock server
